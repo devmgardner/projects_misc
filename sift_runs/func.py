@@ -7,14 +7,16 @@ import pyautogui
 import os, sys, time, pandas as pd, numpy as np
 import matplotlib.pyplot as plt
 #matplotlib inline
-from skimage.io import imread, imshow
+#from skimage.io import imread, imshow
 
 currentdir = os.path.dirname(os.path.realpath(__file__))
 parentdir = os.path.dirname(currentdir)
 sys.path.append(parentdir)
 #
-test_image = os.path.join(currentdir, 'test_image_1.PNG')
+test_image1 = os.path.join(currentdir, 'test_image_1.PNG')
 #test_image = open(test_image)
-image = imread(test_image, as_gray=True)
-imshow(image)
-image.shape, image
+#image = imread(test_image1, as_gray=True)
+#imshow(image)
+#image.shape, image
+location = pyautogui.locateCenterOnScreen(test_image1)
+print(f'X = {location[0]} // Y = {location[1]}')
