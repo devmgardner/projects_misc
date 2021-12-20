@@ -1,6 +1,7 @@
 #https://www.analyticsvidhya.com/blog/2019/08/3-techniques-extract-features-from-image-data-machine-learning-python/
 #https://www.geeksforgeeks.org/how-to-extract-text-from-images-with-python/
 #https://stackoverflow.com/questions/27343997/using-pil-python-image-library-to-detect-image-on-screen
+#https://pyautogui.readthedocs.io/en/latest/screenshot.html#the-locate-functions
 #https://pyautogui.readthedocs.io/en/latest/
 import pyautogui
 import os, sys, time, pandas as pd, numpy as np
