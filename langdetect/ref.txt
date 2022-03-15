@@ -1,0 +1,7 @@
+criteria.from='emailaddress@fake.site'
+-all emails from address
+
+action.addLabelIds=['SPAM']
+action.addLabelIds=['TRASH']
+action.removeLabelIds=['INBOX']
+-mark an email as spam and delete it
