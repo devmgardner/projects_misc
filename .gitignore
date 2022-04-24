@@ -1,2 +1,4 @@
 langdetect/token.pickle
 langdetect/credentials.json
+rs_discord_bot/discord_bot_token.txt
+rs_discord_bot/notes.txt
