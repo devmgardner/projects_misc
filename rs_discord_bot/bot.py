@@ -78,6 +78,8 @@ async def on_message(message):
             await message.channel.send(f'{player} has unlocked the Max Cape! Congratulations!')
         else:
             await message.channel.send(f'{player} needs {"{:,}".format(round(maxxp,2))} XP to unlock the Max Cape.')
+    elif message.content.startswith('$help'):
+        await message.channel.send("$quests <player>\n\tThis will show how many started, not started, and completed quests the player has out of the total number of quests.\n$combat <player>\n\tThis will show you a player's combat level.\n$totalskill <player>\n\tThis will show you a player's total skill level.\n$totalxp <player>\n\tThis will show you a player's total XP.\n$rank <player>\n\tThis will show you a player's rank.\n$maxlevels <player>\n\tThis will show you how many levels a player needs to unlock the Max Cape, if they haven't already.\n$maxxp <player>\n\tThis will show you how much XP a player needs to unlock the Max Cape, if they haven't already.\n$hi bot\n\tSays hi")
     elif message.content.startswith('$hi bot'):
         await message.channel.send(f'Hello @{message.author}!')
 
