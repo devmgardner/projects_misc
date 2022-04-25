@@ -1,5 +1,4 @@
-from xml.dom import pulldom
-import psutil as ps, os
+import psutil as ps, os, platform
 #returns active load percentage in categories
 def cpu():
     pull_data = ps.cpu_times_percent(interval=0.5)
@@ -9,7 +8,10 @@ def cpu():
     return statement
 #returns average load over 1, 5, and 15 minutes
 def avgload():
-    pull_data = [x / ps.cpu_count() * 100 for x in os.getloadavg()]
+    if platform.system() == 'Windows':
+        pull_data = [x / ps.cpu_count() * 100 for x in ps.getloadavg()]
+    else:
+        pull_data = [x / ps.cpu_count() * 100 for x in os.getloadavg()]
     data = {}
     data['1min'], data['5min'], data['15min'] = pull_data[0], pull_data[1], pull_data[2]
     statement = f"CPU Averages:\n----------------\n1 minute load average:\t{round(data['1min'],2)}%\n5 minute load average:\t{round(data['5min'],2)}%\n15 minute load average:\t{round(data['15min'],2)}%\n----------------"
