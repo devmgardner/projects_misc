@@ -4,7 +4,7 @@ currentdir = os.path.dirname(os.path.realpath(__file__))
 parentdir = os.path.dirname(currentdir)
 sys.path.append(parentdir)
 
-dbcon = sq.connect(os.path.join(currentdir, 'GE.sqlite'))
+dbcon = sq.connect(os.path.join(currentdir, 'GE-04-30-22.sqlite'))
 dbcur = dbcon.cursor()
 dbcur.execute("""CREATE TABLE IF NOT EXISTS "items" (
 	"id"	INTEGER NOT NULL UNIQUE,
