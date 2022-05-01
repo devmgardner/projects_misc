@@ -38,7 +38,7 @@ for category in categories.keys():
         for i in range(int(categories[category][1][categories[category][0].index(letter)]/12)):
             if int(categories[category][1][categories[category][0].index(letter)]) == 0:
                 continue
-            time.sleep(5)
+            time.sleep(1)
             params['page'] = i+1
             print(f'params are {params}')
             data = rq.get(itemsurl, params=params)
