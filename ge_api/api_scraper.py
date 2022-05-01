@@ -21,6 +21,7 @@ itemsurl = 'https://services.runescape.com/m=itemdb_rs/api/catalogue/items.json'
 
 params = {}
 catlist = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41]
+alphalist = list('#abcdefghijklmnopqrstuvwxyz')
 print(f'catlist is {catlist}')
 categories = {}
 for category in catlist:
@@ -30,16 +31,19 @@ for category in catlist:
         continue
     elif response.status_code != 404:
         response = response.json()
-        categories[category] = ([a['letter'] for a in response['alpha']], [a['items'] for a in response['alpha']])
+    categories[category] = []
+    print(f'response["alpha"] is {response["alpha"]}')
+    for letter in response['alpha']:
+        if letter['items'] != 0:
+            print(f'current category is {category} and letter is {letter["letter"]}')
+            categories[category].append(letter)
 print(f'categories are {categories}')
 
 for category in categories.keys():
     params['category'] = category
-    for letter in categories[category][0]:
+    for letter in [c['letter'] for c in categories[category]]:
         params['alpha'] = letter
-        for i in range(int(categories[category][1][categories[category][0].index(letter)]/12)):
-            if int(categories[category][1][categories[category][0].index(letter)]) == 0:
-                continue
+        for i in range(int(categories[category]['items']/12)):
             time.sleep(5)
             params['page'] = i+1
             print(f'params are {params}')
