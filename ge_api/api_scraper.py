@@ -41,9 +41,9 @@ print(f'categories are {categories}')
 
 for category in categories.keys():
     params['category'] = category
-    for letter in [c['letter'] for c in categories[category]]:
-        params['alpha'] = letter
-        for i in range(int(categories[category]['items']/12)):
+    for letter in categories[category]:
+        params['alpha'] = letter['letter']
+        for i in range(int(letter['items']/12)):
             time.sleep(5)
             params['page'] = i+1
             print(f'params are {params}')
