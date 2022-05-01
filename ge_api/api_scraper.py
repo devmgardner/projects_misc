@@ -44,7 +44,7 @@ for category in categories.keys():
     for letter in categories[category]:
         params['alpha'] = letter['letter']
         for i in range(int(letter['items']/12)):
-            time.sleep(5)
+            time.sleep(10)
             params['page'] = i+1
             print(f'params are {params}')
             data = rq.get(itemsurl, params=params)
