@@ -26,6 +26,7 @@ print(f'catlist is {catlist}')
 categories = {}
 for category in catlist:
     params['category'] = category
+    time.sleep(3)
     response = rq.get(categoriesurl, params=params)
     if response.status_code == 404:
         continue
@@ -44,7 +45,7 @@ for category in categories.keys():
     for letter in categories[category]:
         params['alpha'] = letter['letter']
         for i in range(int(letter['items']/12)):
-            time.sleep(10)
+            time.sleep(3)
             params['page'] = i+1
             print(f'params are {params}')
             data = rq.get(itemsurl, params=params)
