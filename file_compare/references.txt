@@ -1,0 +1,2 @@
+https://www.geeksforgeeks.org/print-colors-python-terminal/
+https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
