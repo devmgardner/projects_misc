@@ -4,7 +4,7 @@ import requests as rq
 currentdir = os.path.dirname(os.path.realpath(__file__))
 parentdir = os.path.dirname(currentdir)
 sys.path.append(parentdir)
-filename = re.match(f'.*\\\(.*)\..*',__file__).group(1)
+filename = re.match(f'.*\/(.*)\/..*',__file__).group(1)
 url = f"https://projecteuler.net/problem={int(filename)}"
 data = rq.get(url)
 soup = bs(data.text,features="html.parser")
