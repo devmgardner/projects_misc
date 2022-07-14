@@ -3,15 +3,15 @@ def week(d,p,t):
     for i in range(d):
         hour = input(f'enter number of hours worked on day {i+1}> ')
         try:
-            int(hour)
+            float(hour)
         except ValueError:
             print(f'Please enter an integer. Quitting.')
-        hours.append(int(hour))
+        hours.append(float(hour))
     totalhours = sum(hours)
     if totalhours <= 40:
-        totalpay = totalhours * int(pay)
+        totalpay = totalhours * float(pay)
     elif totalhours > 40:
-        totalpay = (((totalhours-40)*1.5*int(pay)) + (40*int(pay))) * (float(t)/100)
+        totalpay = (((totalhours-40)*1.5*float(pay)) + (40*float(pay))) * (float(t)/100)
     return totalpay
 
 days1 = input(f'enter number of days worked in week 1> ')
@@ -29,9 +29,9 @@ except:
     print(f'Please enter an integer. Quitting.')
     quit()
 try:
-    int(pay)
+    float(pay)
 except:
-    print(f'Please enter an integer. Quitting.')
+    print(f'Please enter an integer or float. Quitting.')
     quit()
 try:
     float(tax)
