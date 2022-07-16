@@ -1,0 +1,55 @@
+LIST OF DUPLICATE FILES:
+File path: /home/ubuntu/Git/codewars/.git/ORIG_HEAD
+File hash: 8b42948fd5200cae1a69c85fc4
+
+File path: /home/ubuntu/Git/codewars/.git/logs/HEAD
+File hash: b16d2553c74ec1225b39d52374
+
+File path: /home/ubuntu/Git/codewars/.git/logs/refs/heads/master
+File hash: b16d2553c74ec1225b39d52374
+
+File path: /home/ubuntu/Git/codewars/.git/refs/heads/master
+File hash: 8b42948fd5200cae1a69c85fc4
+
+File path: /home/ubuntu/Git/codewars/.git/refs/remotes/origin/master
+File hash: 8b42948fd5200cae1a69c85fc4
+
+File path: /home/ubuntu/Git/codewars/codewars/Permutations-log.txt
+File hash: d8cd98f00b204e9800998ecf84
+
+File path: /home/ubuntu/Git/codewars/codewars/Roman Numerals Helper/condensed.py
+File hash: d8cd98f00b204e9800998ecf84
+
+File path: /home/ubuntu/Git/codewars/codewars/Roman Numerals Helper/justcode.py
+File hash: d8cd98f00b204e9800998ecf84
+
+File path: /home/ubuntu/Git/codewars/codewars/Sudoku Solver/Sudoku Solver.py
+File hash: d8cd98f00b204e9800998ecf84
+
+File path: /home/ubuntu/Git/codewars/codewars/Sudoku Solver/notated-log.txt
+File hash: d8cd98f00b204e9800998ecf84
+
+File path: /home/ubuntu/Git/codewars/codewars/Sudoku Solver/starting.py
+File hash: cb1c5a7faba60da20782274a93
+
+File path: /home/ubuntu/Git/codewars/codewars/Sudoku Solver/submitted.py
+File hash: d8cd98f00b204e9800998ecf84
+
+File path: /home/ubuntu/Git/codewars/codewars/Sudoku Solver/sudoku-solver-testing.py
+File hash: cb1c5a7faba60da20782274a93
+
+File path: /home/ubuntu/Git/codewars/codewars/createphonenumberlog.txt
+File hash: d8cd98f00b204e9800998ecf84
+
+File path: /home/ubuntu/Git/codewars/codewars/notated-log.txt
+File hash: d8cd98f00b204e9800998ecf84
+
+File path: /home/ubuntu/Git/codewars/codewars/sudoku-working-log.txt
+File hash: d8cd98f00b204e9800998ecf84
+
+File path: /home/ubuntu/Git/codewars/codewars/sum-the-nums-starting-log.txt
+File hash: d8cd98f00b204e9800998ecf84
+
+File path: /home/ubuntu/Git/codewars/codewars/tweets.txt
+File hash: d8cd98f00b204e9800998ecf84
+
