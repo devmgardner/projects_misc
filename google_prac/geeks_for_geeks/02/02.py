@@ -6,13 +6,19 @@ Note: Return -1 if you can't reach the end of the array."""
 #User function Template for python3
 class Solution:
     def minJumps(self, arr, n):
-        elem, jumps = 0, 0
-        while not elem-1 >= len(arr):
-            try:
-                elem += arr[elem]
-            except IndexError:
-                return jumps
+        jumps = ind = 0
+        while ind < n:
+            #print('ind is {}'.format(ind))
+            elem = arr[ind]
+            #print('elem is {}'.format(elem))
+            if elem == 0:
+                return -1
+            ind += elem
+            if ind >= n:
+                ind = n - 1
             jumps += 1
+        return jumps
+        
 
 #{ 
 #  Driver Code Starts

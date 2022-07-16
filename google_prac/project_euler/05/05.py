@@ -18,16 +18,18 @@ What is the smallest positive number that is evenly divisible by all of the numb
 #print(content)
 
 def find_num(inp):
+    rangelist = []
     for i in range(20):
-        i += 1
-        if inp % i == 0:
+        rangelist.append(i+1)
+    for item in rangelist:
+        if inp % item == 0:
             continue
-        elif inp % i != 0:
+        elif inp % item != 0:
             return False
-        elif i == 20 and inp % i == 0:
+        elif inp % item == 0 and item == 20:
             return True
-count = 1
+count = 296985108420
 while find_num(count) != True:
-    count += 1
+    count -= 20
     print(f'Still not found, count is now {count}.')
 print(count)
