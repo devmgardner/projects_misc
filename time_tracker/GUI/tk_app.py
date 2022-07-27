@@ -19,7 +19,7 @@ def send_data(p_source,p_number,p_name,start,stop):
     package['start_time'] = start
     package['stop_time'] = stop
     url = 'http://time.devinmgardner.com:5000'
-    response = rq.get(url,json=package)
+    response = rq.post(url,json=package)
     return [response.headers, response.status_code, response.text]
 #
 def init(top, gui, *args, **kwargs):
