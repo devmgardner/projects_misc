@@ -31,7 +31,7 @@ class Time(Resource):
             print(f'successfully calculated run time')
             dbcon = sq.connect(os.path.join(currentdir,'time.db'))
             dbcur = dbcon.cursor()
-            dbcur.execute("""insert into Time values (?, ?, ?, ?, ?, ?)""",(project_source,project_number,project_name,start_time,stop_time,run_time,))
+            dbcur.execute("""insert into Project_Times values (?, ?, ?, ?, ?, ?)""",(project_source,project_number,project_name,start_time,stop_time,run_time,))
             dbcon.commit()
             print(f'successfully inserted into database')
             dbcon.close()

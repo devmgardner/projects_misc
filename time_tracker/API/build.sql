@@ -1,4 +1,4 @@
-create table if not exists "Time" (
+create table if not exists "Project_Times" (
 "project_source" text,
 "project_number" text,
 "project_name" text,
