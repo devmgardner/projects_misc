@@ -20,7 +20,7 @@ def send_data(p_source,p_number,p_name,start,stop):
     package['stop_time'] = stop
     url = 'http://time.devinmgardner.com:5000'
     response = rq.post(url,json=package)
-    return [response.headers, response.status_code, response.text, response.json()]
+    return [response.status_code, response.text, response.json()]
 #
 def init(top, gui, *args, **kwargs):
     global w, top_level, root
@@ -213,8 +213,7 @@ class Toplevel1:
                 self.outputwindow.config(state='normal')
                 self.outputwindow.insert('end',f'{response[0]}\n')
                 self.outputwindow.insert('end',f'{response[1]}\n')
-                self.outputwindow.insert('end',f'{response[2]}\n')
-                self.outputwindow.insert('end',f"{response[3]['message']}\n")
+                self.outputwindow.insert('end',f"{response[2]['message']}\n")
                 self.outputwindow.config(state='disabled')
                 self.outputwindow.see('end')
             except Exception as e:

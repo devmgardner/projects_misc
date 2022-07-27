@@ -20,26 +20,20 @@ class Time(Resource):
     def post(self):
         try:
             data = request.get_json()
-            print(f'successfully parsed json')
             start_time = data['start_time']
             stop_time = data['stop_time']
             project_name = data['project_name']
             project_source = data['project_source']
             project_number = data['project_number']
-            print(f'successfully assigned variables')
             run_time = str(timedelta(seconds=stop_time-start_time))
-            print(f'successfully calculated run time')
             dbcon = sq.connect(os.path.join(currentdir,'Time.db'))
             dbcur = dbcon.cursor()
             dbcur.execute("""insert into Project_Times values (?, ?, ?, ?, ?, ?)""",(project_source,project_number,project_name,start_time,stop_time,run_time,))
             dbcon.commit()
-            print(f'successfully inserted into database')
             dbcon.close()
             return jsonify({'message':f'Successfully inserted time into database. Thank you for using the tool you created for yourself in hopes of actually needing it.'})
         except Exception as e:
-            print(str(e))
-            print(traceback.format_exc())
-            return jsonify({'message':f'Unable to insert time into database. Please record the following manually.\n{request.headers}'})
+            return jsonify({'message':f'Unable to insert time into database. Please record the following manually.\n{request.headers}\n{str(e)}\n{traceback.format_exc()}'})
 
 api.add_resource(Time, '/')
 
