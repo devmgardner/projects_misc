@@ -28,7 +28,7 @@ class Time(Resource):
             run_time = str(timedelta(seconds=stop_time-start_time))
             dbcon = sq.connect(os.path.join(currentdir,'time.db'))
             dbcur = dbcon.cursor()
-            dbcur.execute(f'''insert into Time values (?, ?, ?, ?, ?, ?)''',(project_source,project_number,project_name,start_time,stop_time,run_time,))
+            dbcur.execute("""insert into Time values (?, ?, ?, ?, ?, ?)""",(project_source,project_number,project_name,start_time,stop_time,run_time,))
             dbcon.commit()
             dbcon.close()
             return jsonify({'message':f'Successfully inserted time into database. Thank you for using the tool you created for yourself in hopes of actually needing it.'})
