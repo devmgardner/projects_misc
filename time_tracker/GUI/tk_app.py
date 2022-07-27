@@ -20,7 +20,7 @@ def send_data(p_source,p_number,p_name,start,stop):
     package['stop_time'] = stop
     url = 'http://time.devinmgardner.com:5000'
     response = rq.post(url,json=package)
-    return [response.headers, response.status_code, response.text, response.json]
+    return [response.headers, response.status_code, response.text, response.json()]
 #
 def init(top, gui, *args, **kwargs):
     global w, top_level, root
@@ -191,7 +191,7 @@ class Toplevel1:
             self.Start.configure(state='disabled')
             self.Stop.configure(state='normal')
             self.outputwindow.config(state='normal')
-            self.outputwindow.insert('end',f'Started timer running at {now.tm_mon}-{now.tm_mday}-{now.tm_year} {now.tm_hour}:{now.tm_min}:{now.tm_sec}')
+            self.outputwindow.insert('end',f'Started timer running at {now.tm_mon}-{now.tm_mday}-{now.tm_year} {now.tm_hour}:{now.tm_min}:{now.tm_sec}\n')
             self.outputwindow.config(state='disabled')
             self.outputwindow.see('end')
         def stop_time():
@@ -204,17 +204,17 @@ class Toplevel1:
             self.Stop.configure(state='disabled')
             self.Start.configure(state='normal')
             self.outputwindow.config(state='normal')
-            self.outputwindow.insert('end',f'Stopped timer running at {now.tm_mon}-{now.tm_mday}-{now.tm_year} {now.tm_hour}:{now.tm_min}:{now.tm_sec}')
-            self.outputwindow.insert('end',f'Attempting to send data to API now.')
+            self.outputwindow.insert('end',f'Stopped timer running at {now.tm_mon}-{now.tm_mday}-{now.tm_year} {now.tm_hour}:{now.tm_min}:{now.tm_sec}\n')
+            self.outputwindow.insert('end',f'Attempting to send data to API now.\n')
             self.outputwindow.config(state='disabled')
             self.outputwindow.see('end')
             try:
                 response = send_data(source,number,name,self.start_time,self.stop_time)
                 self.outputwindow.config(state='normal')
-                self.outputwindow.insert('end',response[0])
-                self.outputwindow.insert('end',response[1])
-                self.outputwindow.insert('end',response[2])
-                self.outputwindow.insert('end',response[3]['message'])
+                self.outputwindow.insert('end',f'{response[0]}\n')
+                self.outputwindow.insert('end',f'{response[1]}\n')
+                self.outputwindow.insert('end',f'{response[2]}\n')
+                self.outputwindow.insert('end',f"{response[3]['message']}\n")
                 self.outputwindow.config(state='disabled')
                 self.outputwindow.see('end')
             except Exception as e:

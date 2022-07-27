@@ -13,7 +13,7 @@ api = Api(app)
 #
 class Time(Resource):
     def get(self):
-        dbcon = sq.connect(os.path.join(currentdir,'time.db'))
+        dbcon = sq.connect(os.path.join(currentdir,'Time.db'))
         dbcur = dbcon.cursor()
         data = dbcur.execute('select * from Time').fetchall()
         return jsonify(data)
