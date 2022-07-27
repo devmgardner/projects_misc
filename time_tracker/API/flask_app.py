@@ -15,7 +15,7 @@ class Time(Resource):
     def get(self):
         dbcon = sq.connect(os.path.join(currentdir,'Time.db'))
         dbcur = dbcon.cursor()
-        data = dbcur.execute('select * from Time').fetchall()
+        data = dbcur.execute('select * from Project_Times').fetchall()
         return jsonify(data)
     def post(self):
         try:
@@ -29,7 +29,7 @@ class Time(Resource):
             print(f'successfully assigned variables')
             run_time = str(timedelta(seconds=stop_time-start_time))
             print(f'successfully calculated run time')
-            dbcon = sq.connect(os.path.join(currentdir,'time.db'))
+            dbcon = sq.connect(os.path.join(currentdir,'Time.db'))
             dbcur = dbcon.cursor()
             dbcur.execute("""insert into Project_Times values (?, ?, ?, ?, ?, ?)""",(project_source,project_number,project_name,start_time,stop_time,run_time,))
             dbcon.commit()
