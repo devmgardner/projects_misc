@@ -32,7 +32,7 @@ class Time(Resource):
         dbcon.close()
 
 
-api.add_resource(Time, '/api/')
+api.add_resource(Time, '/')
 
 if __name__ == '__main__':
     app.run(debug = False,host='0.0.0.0',port=5000)
