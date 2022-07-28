@@ -15,7 +15,7 @@ class Time(Resource):
     def get(self):
         dbcon = sq.connect(os.path.join(currentdir,'Time.db'))
         dbcur = dbcon.cursor()
-        data = dbcur.execute('select * from Project_Times').fetchall()
+        data = dbcur.execute('select * from Project_Times order by project_number').fetchall()
         return jsonify(data)
     def post(self):
         try:

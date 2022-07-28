@@ -5,11 +5,13 @@
 #  in conjunction with Tcl version 8.6
 #    Jul 27, 2022 01:51:13 PM EDT  platform: Windows NT
 
+import datetime
 import sys, traceback
 import tkinter as tk
 import tkinter.ttk as ttk
 import time
 import requests as rq
+from datetime import timedelta
 #
 def send_data(p_source,p_number,p_name,start,stop):
     package = {}
@@ -74,11 +76,46 @@ class Toplevel1:
         top.minsize(120, 1)
         top.maxsize(3604, 1061)
         top.resizable(1,  1)
-        top.title("New Toplevel")
+        top.title("Time Tracker")
         top.configure(background="#d9d9d9")
         #
         #
         #
+        def openview():
+            projlist = rq.get('http://time.devinmgardner.com:5000').json()
+            projlist.sort(key=lambda tup: tup[3])
+            project_numbers = {}
+            for i in projlist:
+                if i[1] not in project_numbers.keys():
+                    project_numbers[i[1]] = {}
+                    project_numbers[i[1]]['name'] = i[2]
+                    project_numbers[i[1]]['source'] = i[0]
+                    project_numbers[i[1]]['runtime'] = float(i[4])-float(i[3])
+                    project_numbers[i[1]]['times'] = []
+                    project_numbers[i[1]]['times'].append([i[3],i[4]])
+                elif i[1] in project_numbers.keys():
+                    project_numbers[i[1]]['runtime'] = project_numbers[i[1]]['runtime'] + (float(i[4])-float(i[3]))
+                    project_numbers[i[1]]['times'].append([i[3],i[4]])
+            new_win = tk.Toplevel(root)
+            scroll = tk.Scrollbar(new_win)
+            scroll.pack(side="right",fill="both")
+            proj_listbox = tk.Listbox(new_win,width=200)
+            proj_listbox.pack(side="left",fill="both")
+            proj_listbox.config(yscrollcommand = scroll.set)
+            scroll.config(command = proj_listbox.yview)
+            for number in sorted(project_numbers.keys()):
+                for time in project_numbers[number]['times']:
+                    proj_listbox.insert('end',f"Project Source: {project_numbers[number]['source']} // Project Number: {number} // Project Name: {project_numbers[number]['name']} // Start Time: {datetime.datetime.fromtimestamp(time[0]).strftime('%m/%d/%Y, %H:%M:%S')} // Stop Time: {datetime.datetime.fromtimestamp(time[1]).strftime('%m/%d/%Y, %H:%M:%S')} // Runtime: {str(timedelta(seconds=time[1]-time[0]))}")
+                proj_listbox.insert('end',f"TOTAL RUNTIME OF PROJECT NUMBER {number}: {str(timedelta(seconds=project_numbers[number]['runtime']))[:-4]}")
+        #
+        #
+        #
+        self.menubar = tk.Menu(top)
+        filemenu = tk.Menu(self.menubar, tearoff=0)
+        filemenu.add_command(label="View", command=openview)
+        self.menubar.add_cascade(label="File", menu=filemenu)
+        top.configure(menu=self.menubar)
+
         self.source = tk.Entry(top)
         self.source.place(relx=0.533, rely=0.156, height=20, relwidth=0.373)
         self.source.configure(background="white")
