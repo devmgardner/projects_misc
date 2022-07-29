@@ -13,14 +13,13 @@ import time
 import requests as rq
 from datetime import timedelta
 #
-def send_data(p_source,p_number,p_name,start,stop):
+def send_data(p_source,p_number,p_name,start,stop,url):
     package = {}
     package['project_source'] = p_source
     package['project_number'] = p_number
     package['project_name'] = p_name
     package['start_time'] = start
     package['stop_time'] = stop
-    url = 'http://time.devinmgardner.com:5000'
     response = rq.post(url,json=package)
     return [response.status_code, response.text, response.json()]
 #
@@ -81,8 +80,8 @@ class Toplevel1:
         #
         #
         #
-        def openview():
-            projlist = rq.get('http://time.devinmgardner.com:5000').json()
+        def openview(url):
+            projlist = rq.get(url).json()
             projlist.sort(key=lambda tup: tup[3])
             project_numbers = {}
             for i in projlist:
@@ -110,14 +109,30 @@ class Toplevel1:
         #
         #
         #
+        self.api = tk.Entry(top)
+        self.api.place(relx=0.533, rely=0.129, height=20, relwidth=0.373)
+        self.api.configure(background="white")
+        self.api.configure(disabledforeground="#a3a3a3")
+        self.api.configure(font="TkFixedFont")
+        self.api.configure(foreground="#000000")
+        self.api.configure(insertbackground="black")
+        self.api_label = tk.Label(top)
+        self.api_label.place(relx=0.533, rely=0.061, height=21, width=94)
+        self.api_label.configure(background="#d9d9d9")
+        self.api_label.configure(disabledforeground="#a3a3a3")
+        self.api_label.configure(foreground="#000000")
+        self.api_label.configure(text='''API IP/URL''')
+        #
+        #
+        #
         self.menubar = tk.Menu(top)
         filemenu = tk.Menu(self.menubar, tearoff=0)
-        filemenu.add_command(label="View", command=openview)
+        filemenu.add_command(label="View", command=lambda: openview(self.api.get()))
         self.menubar.add_cascade(label="File", menu=filemenu)
         top.configure(menu=self.menubar)
 
         self.source = tk.Entry(top)
-        self.source.place(relx=0.533, rely=0.156, height=20, relwidth=0.373)
+        self.source.place(relx=0.533, rely=0.256, height=20, relwidth=0.373)
         self.source.configure(background="white")
         self.source.configure(disabledforeground="#a3a3a3")
         self.source.configure(font="TkFixedFont")
@@ -125,7 +140,7 @@ class Toplevel1:
         self.source.configure(insertbackground="black")
 
         self.number = tk.Entry(top)
-        self.number.place(relx=0.533, rely=0.333, height=20, relwidth=0.373)
+        self.number.place(relx=0.533, rely=0.383, height=20, relwidth=0.373)
         self.number.configure(background="white")
         self.number.configure(disabledforeground="#a3a3a3")
         self.number.configure(font="TkFixedFont")
@@ -177,14 +192,14 @@ class Toplevel1:
         #
         #
         self.source_label = tk.Label(top)
-        self.source_label.place(relx=0.533, rely=0.089, height=21, width=94)
+        self.source_label.place(relx=0.533, rely=0.189, height=21, width=94)
         self.source_label.configure(background="#d9d9d9")
         self.source_label.configure(disabledforeground="#a3a3a3")
         self.source_label.configure(foreground="#000000")
         self.source_label.configure(text='''Project Source''')
 
         self.number_label = tk.Label(top)
-        self.number_label.place(relx=0.533, rely=0.267, height=21, width=94)
+        self.number_label.place(relx=0.533, rely=0.317, height=21, width=94)
         self.number_label.configure(activebackground="#f9f9f9")
         self.number_label.configure(activeforeground="black")
         self.number_label.configure(background="#d9d9d9")
@@ -238,6 +253,7 @@ class Toplevel1:
             source = self.source.get()
             name = self.name.get()
             number = self.number.get()
+            url = self.api.get()
             self.Stop.configure(state='disabled')
             self.Start.configure(state='normal')
             self.outputwindow.config(state='normal')
@@ -246,7 +262,7 @@ class Toplevel1:
             self.outputwindow.config(state='disabled')
             self.outputwindow.see('end')
             try:
-                response = send_data(source,number,name,self.start_time,self.stop_time)
+                response = send_data(source,number,name,self.start_time,self.stop_time,url)
                 self.outputwindow.config(state='normal')
                 self.outputwindow.insert('end',f'{response[0]}\n')
                 self.outputwindow.insert('end',f'{response[1]}\n')

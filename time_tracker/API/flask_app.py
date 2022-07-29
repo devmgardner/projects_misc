@@ -3,6 +3,7 @@ import sqlite3 as sq
 from flask_restful import Resource, Api
 import os, sys, traceback
 from datetime import timedelta
+from build import build
 #
 currentdir = os.path.dirname(os.path.realpath(__file__))
 parentdir = os.path.dirname(currentdir)
@@ -10,6 +11,8 @@ sys.path.append(parentdir)
 #
 app = Flask(__name__)
 api = Api(app)
+#
+build()
 #
 class Time(Resource):
     def get(self):
