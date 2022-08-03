@@ -23,20 +23,30 @@ for var=1,first_tunnel do
     turtle.forward()
 end
 
+turtle.back()
+
 for var=1,total_branches do
     turtle.turnLeft()
     for var=1,each_branch do
-        turtle.dig()
+        while turtle.detect() do
+            turtle.dig()
+        end
         turtle.turnRight()
         turtle.forward()
         turtle.turnLeft()
-        turtle.dig()
+        while turtle.detect() do
+            turtle.dig()
+        end
         turtle.down()
-        turtle.dig()
+        while turtle.detect() do
+            turtle.dig()
+        end
         turtle.turnLeft()
         turtle.forward()
         turtle.turnRight()
-        turtle.dig()
+        while turtle.detect() do
+            turtle.dig()
+        end
         turtle.up()
         turtle.forward()
     end
@@ -48,17 +58,25 @@ for var=1,total_branches do
     turtle.forward()
     turtle.forward()
     for var=1,each_branch do
-        turtle.dig()
+        while turtle.detect() do
+            turtle.dig()
+        end
         turtle.turnRight()
         turtle.forward()
         turtle.turnLeft()
-        turtle.dig()
+        while turtle.detect() do
+            turtle.dig()
+        end
         turtle.down()
-        turtle.dig()
+        while turtle.detect() do
+            turtle.dig()
+        end
         turtle.turnLeft()
         turtle.forward()
         turtle.turnRight()
-        turtle.dig()
+        while turtle.detect() do
+            turtle.dig()
+        end
         turtle.up()
         turtle.forward()
     end
