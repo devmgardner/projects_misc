@@ -89,6 +89,10 @@ for var=1,total_branches do
     turtle.back()
     turtle.back()
     turtle.turnLeft()
+    turtle.forward()
+    turtle.forward()
+    turtle.forward()
+    turtle.forward()
 end
 --while turtle.detectDown() do
 --    print("Digging down!")
