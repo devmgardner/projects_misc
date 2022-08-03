@@ -1,11 +1,11 @@
 turtle.refuel()
 print("Refueled turtle!")
 print("Enter how far you would like the first tunnel to be")
-first_tunnel = io.read()
+first_tunnel = read()
 print("Enter how long you would like each branch to be")
-each_branch = io.read()
+each_branch = read()
 print("Enter how many branches you would like to dig")
-total_branches = io.read()
+total_branches = read()
 
 for var=1,first_tunnel do
     turtle.dig()
