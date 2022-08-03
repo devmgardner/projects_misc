@@ -206,7 +206,7 @@ for var=1,total_branches do
         turtle.back()
     end
     turtle.back()
-    turtle.back()
+    --turtle.back()
     turtle.turnLeft()
     turtle.forward()
     turtle.forward()
