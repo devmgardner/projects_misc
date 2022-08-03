@@ -49,6 +49,7 @@ for var=1,total_branches do
                 turtle.dropDown()
             end
             turtle.forward()
+        end
         --end inventory check
         turtle.turnRight()
         turtle.forward()
@@ -71,6 +72,7 @@ for var=1,total_branches do
                 turtle.dropDown()
             end
             turtle.forward()
+        end
         --end inventory check
         turtle.down()
         --dig statement
@@ -91,6 +93,7 @@ for var=1,total_branches do
                 turtle.dropDown()
             end
             turtle.forward()
+        end
         --end inventory check
         turtle.turnLeft()
         turtle.forward()
@@ -113,6 +116,7 @@ for var=1,total_branches do
                 turtle.dropDown()
             end
             turtle.forward()
+        end
         --end inventory check
         turtle.up()
         turtle.forward()
@@ -143,6 +147,7 @@ for var=1,total_branches do
                 turtle.dropDown()
             end
             turtle.forward()
+        end
         --end inventory check
         turtle.turnLeft()
         turtle.forward()
@@ -165,6 +170,7 @@ for var=1,total_branches do
                 turtle.dropDown()
             end
             turtle.forward()
+        end
         --end inventory check
         turtle.down()
         while turtle.detect() do
@@ -191,6 +197,7 @@ for var=1,total_branches do
                 turtle.dropDown()
             end
             turtle.forward()
+        end
         --end inventory check
         turtle.up()
         turtle.forward()
