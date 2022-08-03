@@ -34,22 +34,66 @@ for var=1,total_branches do
         while turtle.detect() do
             turtle.dig()
         end
+        if turtle.getItemCount(16)>0 do
+            turtle.select(1)
+            turtle.back()
+            if turtle.detectDown() do
+                turtle.digDown()
+            end
+            turtle.placeDown()
+            for var=2,16 do
+                turtle.select(var)
+                turtle.dropDown()
+            end
         turtle.turnRight()
         turtle.forward()
         turtle.turnLeft()
         while turtle.detect() do
             turtle.dig()
         end
+        if turtle.getItemCount(16)>0 do
+            turtle.select(1)
+            turtle.back()
+            if turtle.detectDown() do
+                turtle.digDown()
+            end
+            turtle.placeDown()
+            for var=2,16 do
+                turtle.select(var)
+                turtle.dropDown()
+            end
         turtle.down()
         while turtle.detect() do
             turtle.dig()
         end
+        if turtle.getItemCount(16)>0 do
+            turtle.select(1)
+            turtle.back()
+            if turtle.detectDown() do
+                turtle.digDown()
+            end
+            turtle.placeDown()
+            for var=2,16 do
+                turtle.select(var)
+                turtle.dropDown()
+            end
         turtle.turnLeft()
         turtle.forward()
         turtle.turnRight()
         while turtle.detect() do
             turtle.dig()
         end
+        if turtle.getItemCount(16)>0 do
+            turtle.select(1)
+            turtle.back()
+            if turtle.detectDown() do
+                turtle.digDown()
+            end
+            turtle.placeDown()
+            for var=2,16 do
+                turtle.select(var)
+                turtle.dropDown()
+            end
         turtle.up()
         turtle.forward()
     end
@@ -64,22 +108,66 @@ for var=1,total_branches do
         while turtle.detect() do
             turtle.dig()
         end
+        if turtle.getItemCount(16)>0 do
+            turtle.select(1)
+            turtle.back()
+            if turtle.detectDown() do
+                turtle.digDown()
+            end
+            turtle.placeDown()
+            for var=2,16 do
+                turtle.select(var)
+                turtle.dropDown()
+            end
         turtle.turnLeft()
         turtle.forward()
         turtle.turnRight()
         while turtle.detect() do
             turtle.dig()
         end
+        if turtle.getItemCount(16)>0 do
+            turtle.select(1)
+            turtle.back()
+            if turtle.detectDown() do
+                turtle.digDown()
+            end
+            turtle.placeDown()
+            for var=2,16 do
+                turtle.select(var)
+                turtle.dropDown()
+            end
         turtle.down()
         while turtle.detect() do
             turtle.dig()
         end
+        if turtle.getItemCount(16)>0 do
+            turtle.select(1)
+            turtle.back()
+            if turtle.detectDown() do
+                turtle.digDown()
+            end
+            turtle.placeDown()
+            for var=2,16 do
+                turtle.select(var)
+                turtle.dropDown()
+            end
         turtle.turnRight()
         turtle.forward()
         turtle.turnLeft()
         while turtle.detect() do
             turtle.dig()
         end
+        if turtle.getItemCount(16)>0 do
+            turtle.select(1)
+            turtle.back()
+            if turtle.detectDown() do
+                turtle.digDown()
+            end
+            turtle.placeDown()
+            for var=2,16 do
+                turtle.select(var)
+                turtle.dropDown()
+            end
         turtle.up()
         turtle.forward()
     end
