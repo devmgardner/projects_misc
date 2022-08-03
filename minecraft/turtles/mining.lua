@@ -36,21 +36,6 @@ for var=1,total_branches do
             turtle.dig()
         end
         --end dig statement
-        --inventory check
-        if turtle.getItemCount(16)>0 then
-            turtle.select(1)
-            turtle.back()
-            if turtle.detectDown() then
-                turtle.digDown()
-            end
-            turtle.placeDown()
-            for var=2,16 do
-                turtle.select(var)
-                turtle.dropDown()
-            end
-            turtle.forward()
-        end
-        --end inventory check
         turtle.turnRight()
         turtle.forward()
         turtle.turnLeft()
@@ -59,42 +44,12 @@ for var=1,total_branches do
             turtle.dig()
         end
         --end dig statement
-        --inventory check
-        if turtle.getItemCount(16)>0 then
-            turtle.select(1)
-            turtle.back()
-            if turtle.detectDown() then
-                turtle.digDown()
-            end
-            turtle.placeDown()
-            for var=2,16 do
-                turtle.select(var)
-                turtle.dropDown()
-            end
-            turtle.forward()
-        end
-        --end inventory check
         turtle.down()
         --dig statement
         while turtle.detect() do
             turtle.dig()
         end
         --end dig statement
-        --inventory check
-        if turtle.getItemCount(16)>0 then
-            turtle.select(1)
-            turtle.back()
-            if turtle.detectDown() then
-                turtle.digDown()
-            end
-            turtle.placeDown()
-            for var=2,16 do
-                turtle.select(var)
-                turtle.dropDown()
-            end
-            turtle.forward()
-        end
-        --end inventory check
         turtle.turnLeft()
         turtle.forward()
         turtle.turnRight()
@@ -103,21 +58,6 @@ for var=1,total_branches do
             turtle.dig()
         end
         --end dig statement
-        --inventory check
-        if turtle.getItemCount(16)>0 then
-            turtle.select(1)
-            turtle.back()
-            if turtle.detectDown() then
-                turtle.digDown()
-            end
-            turtle.placeDown()
-            for var=2,16 do
-                turtle.select(var)
-                turtle.dropDown()
-            end
-            turtle.forward()
-        end
-        --end inventory check
         turtle.up()
         turtle.forward()
     end
@@ -134,21 +74,6 @@ for var=1,total_branches do
             turtle.dig()
         end
         --end dig statement
-        --inventory check
-        if turtle.getItemCount(16)>0 then
-            turtle.select(1)
-            turtle.back()
-            if turtle.detectDown() then
-                turtle.digDown()
-            end
-            turtle.placeDown()
-            for var=2,16 do
-                turtle.select(var)
-                turtle.dropDown()
-            end
-            turtle.forward()
-        end
-        --end inventory check
         turtle.turnLeft()
         turtle.forward()
         turtle.turnRight()
@@ -157,21 +82,6 @@ for var=1,total_branches do
             turtle.dig()
         end
         --end dig statement
-        --inventory check
-        if turtle.getItemCount(16)>0 then
-            turtle.select(1)
-            turtle.back()
-            if turtle.detectDown() then
-                turtle.digDown()
-            end
-            turtle.placeDown()
-            for var=2,16 do
-                turtle.select(var)
-                turtle.dropDown()
-            end
-            turtle.forward()
-        end
-        --end inventory check
         turtle.down()
         while turtle.detect() do
             turtle.dig()
@@ -184,21 +94,6 @@ for var=1,total_branches do
             turtle.dig()
         end
         --end dig statement
-        --inventory check
-        if turtle.getItemCount(16)>0 then
-            turtle.select(1)
-            turtle.back()
-            if turtle.detectDown() then
-                turtle.digDown()
-            end
-            turtle.placeDown()
-            for var=2,16 do
-                turtle.select(var)
-                turtle.dropDown()
-            end
-            turtle.forward()
-        end
-        --end inventory check
         turtle.up()
         turtle.forward()
     end
@@ -207,6 +102,12 @@ for var=1,total_branches do
     end
     turtle.back()
     --turtle.back()
+    turtle.select(1)
+    turtle.placeDown()
+    for var=2,16 do
+        turtle.select(var)
+        turtle.dropDown()
+    end
     turtle.turnLeft()
     turtle.forward()
     turtle.forward()
