@@ -22,6 +22,9 @@ for var=1,first_tunnel do
     turtle.up()
     turtle.forward()
 end
+for var=1,first_tunnel do
+    turtle.back()
+end
 
 turtle.back()
 
@@ -83,6 +86,7 @@ for var=1,total_branches do
     for var=1,each_branch do
         turtle.back()
     end
+    turtle.back()
     turtle.back()
     turtle.turnLeft()
 end
