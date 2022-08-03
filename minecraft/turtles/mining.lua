@@ -61,9 +61,9 @@ for var=1,total_branches do
         while turtle.detect() do
             turtle.dig()
         end
-        turtle.turnRight()
-        turtle.forward()
         turtle.turnLeft()
+        turtle.forward()
+        turtle.turnRight()
         while turtle.detect() do
             turtle.dig()
         end
@@ -71,9 +71,9 @@ for var=1,total_branches do
         while turtle.detect() do
             turtle.dig()
         end
-        turtle.turnLeft()
-        turtle.forward()
         turtle.turnRight()
+        turtle.forward()
+        turtle.turnLeft()
         while turtle.detect() do
             turtle.dig()
         end
