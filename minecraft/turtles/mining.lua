@@ -127,7 +127,7 @@ for var=1,total_branches do
     turtle.turnLeft()
     turtle.turnLeft()
     turtle.forward()
-    turtle.forward()
+    --turtle.forward()
     for var=1,each_branch do
         --dig statement
         while turtle.detect() do
@@ -212,9 +212,10 @@ for var=1,total_branches do
     turtle.forward()
     turtle.forward()
     turtle.forward()
-    turtle.turnLeft()
-    turtle.forward()
-    turtle.turnRight()
+    print("Sanity check! Starting new branch now.")
+    --turtle.turnLeft()
+    --turtle.forward()
+    --turtle.turnRight()
 end
 --while turtle.detectDown() do
 --    print("Digging down!")
