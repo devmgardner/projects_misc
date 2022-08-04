@@ -1,3 +1,4 @@
+--starts the first branch one block behind and to the left of where it starts the program
 turtle.refuel()
 print("Refueled turtle!")
 print("Enter how far you would like the first tunnel to be")
