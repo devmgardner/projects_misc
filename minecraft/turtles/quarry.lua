@@ -59,4 +59,5 @@ for var=1,layers do
         turtle.select(var)
         turtle.dropUp()
     end
+    turtle.down()
 end
