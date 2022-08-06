@@ -55,9 +55,13 @@ for var=1,layers do
     turtle.turnRight()
     turtle.select(1)
     turtle.placeUp()
-    for var=2,16 do
+    for var=3,16 do
         turtle.select(var)
         turtle.dropUp()
     end
+    turtle.select(2)
+    turtle.turnRight()
+    turtle.place()
+    turtle.turnLeft()
     turtle.down()
 end
