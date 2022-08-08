@@ -3,14 +3,14 @@
 class ttt():
     def __init__(self):
         self.state = [['-','-','-'],['-','-','-'],['-','-','-']]
-        self.rows = []
+        self.rows = self.board = []
     def Player(self,s):
-        board = [i for i in j for j in self.state]
-        if board.count('X') == 0:
+        self.board = [i for i in j for j in self.state]
+        if self.board.count('X') == 0:
             return 'X'
-        elif board.count('X') == board.count('O'):
+        elif self.board.count('X') == self.board.count('O'):
             return 'X'
-        elif board.count('X') > board.count('O'):
+        elif self.board.count('X') > self.board.count('O'):
             return 'O'
     def Actions(self,s):
         pass
@@ -19,7 +19,7 @@ class ttt():
     def Terminal(self,s):
         # append existing rows to list
         for i in self.state:
-            rows.append(i)
+            self.rows.append(i)
         # set up blank list for vertical and diagonal "rows"
         row = []
         # append left to right diagonal
@@ -36,28 +36,26 @@ class ttt():
                 row.append(i[j])
             self.rows.append(row)
             row = []
-        # flatten self.state into a 1d list
-        board = [i for i in j for j in self.state]
         # check if any potential winner for X player
         if ['X','X','X'] in self.rows:
             return True
         # check if any potential winner for O player
         elif ['O','O','O'] in self.rows:
             return True
-        # if no winners but board is full, also return True
-        elif board.count('-') == 0:
+        # if no winners but self.board is full, also return True
+        elif self.board.count('-') == 0:
             return True
     def Utility(self,s):
         # flatten self.state into a 1d list
-        board = [i for i in j for j in self.state]
+        self.board = [i for i in j for j in self.state]
         # check if any potential winner for X player
         if ['X','X','X'] in self.rows:
             return 1
         # check if any potential winner for O player
         elif ['O','O','O'] in self.rows:
             return -1
-        # if no winners but board is full, also return True
-        elif board.count('-') == 0:
+        # if no winners but self.board is full, also return True
+        elif self.board.count('-') == 0:
             return 0
 
 new = ttt()
