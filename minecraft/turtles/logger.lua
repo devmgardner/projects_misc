@@ -1,5 +1,6 @@
 for h=1,7 do
     turtle.up()
+end
 for mainloop=1,7 do
     for times=1,8 do
         for length=1,18 do
