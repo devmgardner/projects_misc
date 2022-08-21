@@ -7,7 +7,7 @@ sys.path.append(parentdir)
 #
 with open(os.path.join('/home','ubuntu','youtube.txt'),'r') as fhand:
     lines = [line.strip() for line in fhand.readlines()]
-logger = open(os.path.join('/media','Dock1','Media','Videos',f'Log_File_{datetime.datetime.fromtimestamp(time.time()).strftime("%m/%d/%Y_%H:%M:%S")}'),'w')
+logger = open(os.path.join('/media','Dock1','Media','Videos',f'Log_File_{datetime.datetime.fromtimestamp(time.time()).strftime("%m/%d/%Y_%H:%M:%S")}.txt'),'w')
 #
 downloaded = {}
 for line in lines:
