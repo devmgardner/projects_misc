@@ -83,7 +83,7 @@ for line in lines:
             ffmpeg.output(audio_stream, video_stream, os.path.join(SAVE_PATH,f'{yt.title}.mp4')).run()
             # write the metadata to a JSON file
             with open(os.path.join('/media','Dock1','Media','Videos',f'{yt.channel_id}',f'{yt.title}.json'),'w') as fhand:
-                fhand.write(json.dump(video,indent=4))
+                fhand.write(json.dumps(video,indent=4))
             downloaded[line] = 'True'
             logger.write(f'wrote {yt.title}.mp4\n')
         except Exception as e:
