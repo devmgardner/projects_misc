@@ -8,6 +8,9 @@ sys.path.append(parentdir)
 with open(os.path.join('/home','ubuntu','youtube.txt'),'r') as fhand:
     lines = [line.strip() for line in fhand.readlines()]
 logger = open(os.path.join('/media','Dock1','Media','Videos',f'Log_File_{datetime.datetime.fromtimestamp(time.time()).strftime("%m-%d-%Y_%H:%M:%S")}.txt'),'w')
+if len(lines[0]) == 0:
+    logger.write(f'no files to download, quitting\n')
+    quit()
 # set up blank dict for finding out what has been downloaded successfully and what hasn't
 downloaded = {}
 # main loop
@@ -69,22 +72,26 @@ for line in lines:
     video['watch_url'] = yt.watch_url
     video['captions'] = yt.captions
     video['caption_tracks'] = yt.caption_tracks
-    try:
-        # try to download the video and audio of the stream
-        vstream.download(output_path=SAVE_PATH,filename=f'{yt.title}_video.mp4')
-        astream.download(output_path=SAVE_PATH,filename=f'{yt.title}_audio.mp4')
-        # try to combine them using ffmpeg
-        video_stream = ffmpeg.input(os.path.join(SAVE_PATH,f'{yt.title}_video.mp4'))
-        audio_stream = ffmpeg.input(os.path.join(SAVE_PATH,f'{yt.title}_audio.mp4'))
-        ffmpeg.output(audio_stream, video_stream, os.path.join(SAVE_PATH,f'{yt.title}.mp4')).run()
-        # write the metadata to a JSON file
-        with open(os.path.join('media','Dock1','Media','Videos',f'{yt.channel_id}',f'{yt.title}.json'),'w') as fhand:
-            fhand.write(json.dump(video,indent=4))
-        downloaded[line] = 'True'
-    except Exception as e:
-        logger.write(f'{str(e)}\n')
-        logger.write(f'{traceback.format_exc()}\n')
-        downloaded[line] = 'False'
+    if not os.path.exists(os.path.join(SAVE_PATH,f'{yt.title}.mp4')):
+        try:
+            # try to download the video and audio of the stream
+            vstream.download(output_path=SAVE_PATH,filename=f'{yt.title}_video.mp4')
+            astream.download(output_path=SAVE_PATH,filename=f'{yt.title}_audio.mp4')
+            # try to combine them using ffmpeg
+            video_stream = ffmpeg.input(os.path.join(SAVE_PATH,f'{yt.title}_video.mp4'))
+            audio_stream = ffmpeg.input(os.path.join(SAVE_PATH,f'{yt.title}_audio.mp4'))
+            ffmpeg.output(audio_stream, video_stream, os.path.join(SAVE_PATH,f'{yt.title}.mp4')).run()
+            # write the metadata to a JSON file
+            with open(os.path.join('/media','Dock1','Media','Videos',f'{yt.channel_id}',f'{yt.title}.json'),'w') as fhand:
+                fhand.write(json.dump(video,indent=4))
+            downloaded[line] = 'True'
+            logger.write(f'wrote {yt.title}.mp4\n')
+        except Exception as e:
+            logger.write(f'{str(e)}\n')
+            logger.write(f'{traceback.format_exc()}\n')
+            downloaded[line] = 'False'
+    else:
+        logger.write(f'{yt.title}.mp4 already exists, skipping\n')
 # iterate through downloaded dict, anything that wasn't downloaded gets re-written to the original .txt file
 for k,v in downloaded.items():
     with open(os.path.join('/home','ubuntu','youtube.txt'),'w') as fhand:
