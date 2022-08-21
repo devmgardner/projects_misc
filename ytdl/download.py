@@ -63,15 +63,15 @@ for line in lines:
     video['channel_url'] = yt.channel_url
     video['embed_url'] = yt.embed_url
     video['initial_data'] = yt.initial_data
-    video['metadata'] = yt.metadata
+    #video['metadata'] = yt.metadata
     video['publish_date'] = yt.publish_date
     video['rating'] = yt.rating
     video['thumbnail_url'] = yt.thumbnail_url
     video['video_id'] = yt.video_id
     video['views'] = yt.views
     video['watch_url'] = yt.watch_url
-    video['captions'] = yt.captions
-    video['caption_tracks'] = yt.caption_tracks
+    #video['captions'] = yt.captions
+    #video['caption_tracks'] = yt.caption_tracks
     if not os.path.exists(os.path.join(SAVE_PATH,f'{yt.title}.mp4')):
         try:
             # try to download the video and audio of the stream
