@@ -97,3 +97,5 @@ for k,v in downloaded.items():
     with open(os.path.join('/home','ubuntu','youtube.txt'),'w') as fhand:
         if v == 'False':
             fhand.write(f'{k}\n')
+        elif v == 'True':
+            fhand.write(f'')
