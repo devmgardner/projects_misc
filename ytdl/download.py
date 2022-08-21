@@ -5,9 +5,9 @@ currentdir = os.path.dirname(os.path.realpath(__file__))
 parentdir = os.path.dirname(currentdir)
 sys.path.append(parentdir)
 #
-with open(os.path.join('home','ubuntu','youtube.txt'),'r') as fhand:
+with open(os.path.join('/home','ubuntu','youtube.txt'),'r') as fhand:
     lines = [line.strip() for line in fhand.readlines()]
-logger = open(os.path.join('media','Dock1','Media','Videos',f'Log_File_{datetime.datetime.fromtimestamp(time.time()).strftime("%m/%d/%Y_%H:%M:%S")}'),'w')
+logger = open(os.path.join('/media','Dock1','Media','Videos',f'Log_File_{datetime.datetime.fromtimestamp(time.time()).strftime("%m/%d/%Y_%H:%M:%S")}'),'w')
 #
 downloaded = {}
 for line in lines:
@@ -18,9 +18,9 @@ for line in lines:
         logger.write(f'{traceback.format_exc}\n')
         downloaded[line] = 'False'
     #
-    if not os.path.exists(os.path.join('media','Dock1','Media','Videos',f'{yt.channel_id}')):
+    if not os.path.exists(os.path.join('/media','Dock1','Media','Videos',f'{yt.channel_id}')):
         subprocess.run(f"mkdir {os.path.join('media','Dock1','Media','Videos',f'{yt.channel_id}')}")
-    SAVE_PATH = os.path.join('media','Dock1','Media','Videos',f'{yt.channel_id}')
+    SAVE_PATH = os.path.join('/media','Dock1','Media','Videos',f'{yt.channel_id}')
     mp4files = yt.filter('mp4')
     yt.set_filename(yt.title)
     d_video = yt.get(mp4files[-1].extension,mp4files[-1].resolution)
@@ -55,6 +55,6 @@ for line in lines:
         logger.write(f'{traceback.format_exc}\n')
         downloaded[line] = 'False'
 for k,v in downloaded.items:
-    with open(os.path.join('home','ubuntu','youtube.txt'),'w') as fhand:
+    with open(os.path.join('/home','ubuntu','youtube.txt'),'w') as fhand:
         if v == 'False':
             fhand.write(f'{k}\n')
