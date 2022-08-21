@@ -64,7 +64,7 @@ for line in lines:
     video['embed_url'] = yt.embed_url
     video['initial_data'] = yt.initial_data
     #video['metadata'] = yt.metadata
-    video['publish_date'] = yt.publish_date
+    video['publish_date'] = yt.publish_date.strftime("%m-%d-%Y_%H:%M:%S")
     video['rating'] = yt.rating
     video['thumbnail_url'] = yt.thumbnail_url
     video['video_id'] = yt.video_id
