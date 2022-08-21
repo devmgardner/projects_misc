@@ -1,4 +1,4 @@
-import os,sys,time,datetime,traceback,subprocess,json
+import os,sys,time,datetime,traceback,subprocess,json,ffmpeg
 from pytube import YouTube
 #
 currentdir = os.path.dirname(os.path.realpath(__file__))
@@ -20,10 +20,23 @@ for line in lines:
     #
     if not os.path.exists(os.path.join('/media','Dock1','Media','Videos',f'{yt.channel_id}')):
         subprocess.call(f"mkdir {os.path.join('/media','Dock1','Media','Videos',f'{yt.channel_id}')}",shell=True)
+    #
     SAVE_PATH = os.path.join('/media','Dock1','Media','Videos',f'{yt.channel_id}')
-    mp4files = yt.filter('mp4')
-    yt.set_filename(yt.title)
-    d_video = yt.get(mp4files[-1].extension,mp4files[-1].resolution)
+    #
+    mp4files = yt.streams.filter(file_extension='mp4',only_video=True)
+    resolutions = [(stream.itag,stream.resolution[:-1]) for stream in mp4files]
+    resolutions.sort(key=lambda y: y[1],reverse=True)
+    for res in resolutions:
+        if int(res[1]) == max([int(res[1]) for res in resolutions]):
+            vstream = yt.streams.get_by_itag(res[0])
+    #
+    mp3files = yt.streams.filter(file_extension='mp4',only_audio=True)
+    bitrates = [(stream.itag,stream.abr[:-4]) for stream in mp3files]
+    resolutions.sort(key=lambda y: y[1],reverse=True)
+    for res in resolutions:
+        if int(res[1]) == max([int(res[1]) for res in resolutions]):
+            astream = yt.streams.get_by_itag(res[0])
+    #
     video = {}
     video['title'] = yt.title
     video['author'] = yt.author
@@ -38,7 +51,6 @@ for line in lines:
     video['metadata'] = yt.metadata
     video['publish_date'] = yt.publish_date
     video['rating'] = yt.rating
-    video['streams'] = yt.streams
     video['thumbnail_url'] = yt.thumbnail_url
     video['video_id'] = yt.video_id
     video['views'] = yt.views
@@ -46,7 +58,11 @@ for line in lines:
     video['captions'] = yt.captions
     video['caption_tracks'] = yt.caption_tracks
     try:
-        d_video.download(SAVE_PATH)
+        vstream.download(output_path=SAVE_PATH,filename=f'{yt.title}_video.mp4')
+        astream.download(output_path=SAVE_PATH,filename=f'{yt.title}_audio.mp4')
+        video_stream = ffmpeg.input(os.path.join(SAVE_PATH,f'{yt.title}_video.mp4'))
+        audio_stream = ffmpeg.input(os.path.join(SAVE_PATH,f'{yt.title}_audio.mp4'))
+        ffmpeg.output(audio_stream, video_stream, os.path.join(SAVE_PATH,f'{yt.title}.mp4')).run()
         with open(os.path.join('media','Dock1','Media','Videos',f'{yt.channel_id}',f'{yt.title}.json'),'w') as fhand:
             fhand.write(json.dump(video,indent=4))
         downloaded[line] = 'True'
