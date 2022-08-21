@@ -19,7 +19,7 @@ for line in lines:
         downloaded[line] = 'False'
     #
     if not os.path.exists(os.path.join('/media','Dock1','Media','Videos',f'{yt.channel_id}')):
-        subprocess.call(f"mkdir {os.path.join('media','Dock1','Media','Videos',f'{yt.channel_id}')}")
+        subprocess.call(f"mkdir {os.path.join('/media','Dock1','Media','Videos',f'{yt.channel_id}')}")
     SAVE_PATH = os.path.join('/media','Dock1','Media','Videos',f'{yt.channel_id}')
     mp4files = yt.filter('mp4')
     yt.set_filename(yt.title)
