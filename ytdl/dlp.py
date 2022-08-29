@@ -9,7 +9,7 @@ a = [line.strip() for line in open(os.path.join('/home','ubuntu','youtube.txt'))
 now = datetime.datetime.fromtimestamp(time.time()).strftime("%m-%d-%Y_%H:%M:%S")
 #
 for b in a:
-    if not 'channel' in b:
+    if not 'channel' in b or '/c/' in b or 'user' in b:
         subprocess.call(f'yt-dlp --write-info-json --embed-subs --embed-thumbnail --recode-video mp4 -o "/media/Dock1/Media/Videos/Dailies/{now}/%(upload_date)s - %(title)s/%(upload_date)s - %(title)s.%(ext)s" {b}',shell=True)
     elif 'channel' in b or '/c/' in b or 'user' in b:
         try:
