@@ -1,0 +1,3 @@
+https://packaging.python.org/en/latest/tutorials/packaging-projects/
+https://www.geeksforgeeks.org/command-line-scripts-python-packaging/
+https://www.geeksforgeeks.org/command-line-interface-programming-python/
