@@ -3,7 +3,7 @@ import re, argparse
 # set up the Die class
 class Die():
     def __init__(self,size):
-        self.size = int(size[1:])
+        self.size = int(size)
     def roll(self):
         result = randint(1,self.size)
         return result
@@ -17,7 +17,7 @@ def roll(args):
     # perform the actual rolls
     results = []
     for item in inp_list:
-        matches = re.search('(.*)x(.*)',item)
+        matches = re.search('(.*)d(.*)',item)
         num = int(matches.group(1))
         dice = matches.group(2)
         for i in range(num):
@@ -34,7 +34,7 @@ def results(args):
     # perform the actual rolls
     results = {}
     for item in inp_list:
-        matches = re.search('(.*)x(.*)',item)
+        matches = re.search('(.*)d(.*)',item)
         num = int(matches.group(1))
         dice = matches.group(2)
         for i in range(num):
