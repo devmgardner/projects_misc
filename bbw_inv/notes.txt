@@ -1,0 +1,3 @@
+each JSON db will have UPC and count
+so each item scanned will need name (for JSON assignment) and UPC
+each time an item is scanned, the existing list will need to be checked for that UPC, and if existing in list, increase count by 1
