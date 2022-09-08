@@ -32,7 +32,7 @@ def results(args):
     elif ',' not in inp:
         inp_list = [re.sub(' ','',inp)]
     # perform the actual rolls
-    results = {}
+    results = []
     for item in inp_list:
         matches = re.search('(.*)d(.*)',item)
         num = int(matches.group(1))
@@ -40,12 +40,19 @@ def results(args):
         for i in range(num):
             die = Die(dice)
             roll = die.roll()
-            if not f'{dice}-{roll}' in results.keys():
-                results[f'{dice}-{roll}'] = 1
-            elif f'{dice}-{roll}' in results.keys():
-                results[f'{dice}-{roll}'] += 1
-    for i in sorted(results.keys()):
-        print(f'{i}: {results[i]}')
+            if not (f'd{dice}',roll) in [(i['die'],i['roll']) for i in results]:
+                new_roll = {}
+                new_roll['die'] = f'd{dice}'
+                new_roll['roll'] = roll
+                new_roll['count'] = 1
+                results.append(new_roll)
+            elif (f'd{dice}',roll) in [(i['die'],i['roll']) for i in results]:
+                results[[(i['die'],i['roll']) for i in results].index((f'd{dice}',roll))]['count'] += 1
+    for i in sorted(results, key= lambda d: (d['die'],d['roll'])):
+        print(f"------------")
+        print(f"Die: {i['die']}")
+        print(f"Roll: {i['roll']}")
+        print(f"Count: {i['count']}")
 def main():
     parser = argparse.ArgumentParser(description = "A die-/dice-rolling program")
     #
