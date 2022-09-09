@@ -23,7 +23,7 @@ def roll(args):
         for i in range(num):
             die = Die(dice)
             results.append(die.roll())
-    print(sum(results))
+    return sum(results)
 #
 def results(args):
     inp = args.results[0]
@@ -48,11 +48,7 @@ def results(args):
                 results.append(new_roll)
             elif (f'd{dice}',roll) in [(i['die'],i['roll']) for i in results]:
                 results[[(i['die'],i['roll']) for i in results].index((f'd{dice}',roll))]['count'] += 1
-    for i in sorted(results, key= lambda d: (d['die'],d['roll'])):
-        print(f"------------")
-        print(f"Die: {i['die']}")
-        print(f"Roll: {i['roll']}")
-        print(f"Count: {i['count']}")
+    return results
 def main():
     parser = argparse.ArgumentParser(description = "A die-/dice-rolling program")
     #
@@ -63,12 +59,16 @@ def main():
     #
     if len(args.roll) > 0:
         try:
-            roll(args)
+            print(roll(args))
         except Exception as e:
             print(str(e))
 
     elif args.results != None:
-        results(args)
+        for i in sorted(results(args), key= lambda d: (d['die'],d['roll'])):
+            print(f"------------")
+            print(f"Die: {i['die']}")
+            print(f"Roll: {i['roll']}")
+            print(f"Count: {i['count']}")
 #
 if __name__ == "__main__":
     # calling the main function
