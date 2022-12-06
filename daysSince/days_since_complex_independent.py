@@ -171,7 +171,7 @@ def time_breakdown(hms):
     import re
     # separate hours, minutes, and seconds into groups and assign them to variables
     # yes i'm aware i can one-line this and i choose not to
-    groups = re.match('([0-9]{2}):([0-9]{2}):(.*)',hms)
+    groups = re.match('([0-9]{1,2}):([0-9]{2}):([0-9.]*)',hms)
     hours = groups.group(1)
     minutes = groups.group(2)
     seconds = groups.group(3)
@@ -190,6 +190,7 @@ def find_difference(now,then):
     response = 'The starting date/datetime was '
     # check if "days" is included in the timedelta, because if so we have more work to do
     if 'days' in str(difference):
+        print(str(difference))
         # separate the timedelta into the number of days and the number of hours/minutes/seconds
         groups = re.match(f'([0-9]*) days, (.*)',str(difference))
         # set the number of days to a variable, and run our earlier breakdown function on it

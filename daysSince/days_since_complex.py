@@ -171,7 +171,7 @@ def time_breakdown(hms):
     import re
     # separate hours, minutes, and seconds into groups and assign them to variables
     # yes i'm aware i can one-line this and i choose not to
-    groups = re.match('([0-9]{2}):([0-9]{2}):(.*)',hms)
+    groups = re.match('([0-9]{1,2}):([0-9]{2}):([0-9.]*)',hms)
     hours = groups.group(1)
     minutes = groups.group(2)
     seconds = groups.group(3)
