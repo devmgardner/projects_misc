@@ -126,7 +126,7 @@ class window_main:
         top.configure(background="#d9d9d9")
         top.configure(highlightbackground="#d9d9d9")
         top.configure(highlightcolor="black")
-        self.hex_value = tk.CTkLabel(top)
+        self.hex_value = tk.CTkLabel(top,font=("Arial",25))
         self.hex_value.place(relx=0.333, rely=0.05, height=42, width=150)
         self.hex_value.configure(text='''00000000''')
         def check_buttons():

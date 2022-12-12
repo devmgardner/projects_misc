@@ -127,7 +127,7 @@ class window_main:
         top.configure(background="#d9d9d9")
         top.configure(highlightbackground="#d9d9d9")
         top.configure(highlightcolor="black")
-        self.hex_value = tk.Label(top)
+        self.hex_value = tk.Label(top,font=("Arial",25))
         self.hex_value.place(relx=0.333, rely=0.05, height=42, width=150)
         self.hex_value.configure(background="#d9d9d9")
         self.hex_value.configure(foreground="#000000")
