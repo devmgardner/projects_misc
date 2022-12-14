@@ -10,3 +10,6 @@ fcc/datasets/bitcoin-historical-data.zip
 cpp_learning/day_01/comrade.exe
 cpp_learning/day_01/test.exe
 IXS_EC5_VCS/IXS/*
+IXS_EC5_VCS/__pycache__/*
+IXS_EC5_VCS/build/*
+IXS_EC5_VCS/snips/*
