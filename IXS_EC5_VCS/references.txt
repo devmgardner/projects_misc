@@ -1,0 +1,4 @@
+https://www.pythontutorial.net/tkinter/tkinter-menu/
+https://www.geeksforgeeks.org/python-geometry-method-in-tkinter/
+https://stackoverflow.com/questions/49901928/how-to-take-a-screenshot-with-python-using-a-click-and-drag-method-like-snipping
+pyinstaller -c --onedir --add-data "c:\users\workstation2\desktop\vsc\projects_misc\ixs_ec5_vcs\ixs\ixs\lib\site-packages\customtkinter;customtkinter\" vital_config_gui_ctk.py
