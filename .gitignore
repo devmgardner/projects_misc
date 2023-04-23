@@ -13,3 +13,5 @@ IXS_EC5_VCS/IXS/*
 IXS_EC5_VCS/__pycache__/*
 IXS_EC5_VCS/build/*
 IXS_EC5_VCS/snips/*
+.DS_Store
+.vscode/*
