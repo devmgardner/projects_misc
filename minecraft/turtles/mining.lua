@@ -9,17 +9,25 @@ print("Enter how many branches you would like to dig")
 total_branches = read()
 
 for var=1,first_tunnel do
-    turtle.dig()
+    while turtle.detect() do
+        turtle.dig()
+    end
     turtle.turnRight()
     turtle.forward()
     turtle.turnLeft()
-    turtle.dig()
+    while turtle.detect() do
+        turtle.dig()
+    end
     turtle.down()
-    turtle.dig()
+    while turtle.detect() do
+        turtle.dig()
+    end
     turtle.turnLeft()
     turtle.forward()
     turtle.turnRight()
-    turtle.dig()
+    while turtle.detect() do
+        turtle.dig()
+    end
     turtle.up()
     turtle.forward()
 end

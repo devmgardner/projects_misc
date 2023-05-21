@@ -15,3 +15,10 @@ IXS_EC5_VCS/build/*
 IXS_EC5_VCS/snips/*
 .DS_Store
 .vscode/*
+ot_calc/dist/ot_calc/lib-dynload/*
+ot_calc/__pycache__/*
+harvard/CS50AI/degrees/__pycache__/*
+ot_calc/__pycache__/*
+ot_calc/build/ot_calc/*
+ot_calc/dist/ot_calc/*
+time_tracker/GUI/__pycache__/*
