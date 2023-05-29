@@ -1,5 +1,5 @@
 --starts the first branch one block behind and to the left of where it starts the program
-turtle.refuel()
+turtle.refuel()end
 print("Refueled turtle!")
 print("Enter how far you would like the first tunnel to be")
 first_tunnel = read()
@@ -8,12 +8,20 @@ each_branch = read()
 print("Enter how many branches you would like to dig")
 total_branches = read()
 
+function forward()
+    while not turtle.forward() do sleep(0.5) end
+end
+
+function back()
+    while not turtle.back() do sleep(0.5) end
+end
+
 for var=1,first_tunnel do
     while turtle.detect() do
         turtle.dig()
     end
     turtle.turnRight()
-    turtle.forward()
+    forward()
     turtle.turnLeft()
     while turtle.detect() do
         turtle.dig()
@@ -23,19 +31,19 @@ for var=1,first_tunnel do
         turtle.dig()
     end
     turtle.turnLeft()
-    turtle.forward()
+    forward()
     turtle.turnRight()
     while turtle.detect() do
         turtle.dig()
     end
     turtle.up()
-    turtle.forward()
+    forward()
 end
 for var=1,first_tunnel do
-    turtle.back()
+    back()
 end
 
-turtle.back()
+back()
 
 for var=1,total_branches do
     turtle.turnLeft()
@@ -46,7 +54,7 @@ for var=1,total_branches do
         end
         --end dig statement
         turtle.turnRight()
-        turtle.forward()
+        forward()
         turtle.turnLeft()
         --dig statement
         while turtle.detect() do
@@ -60,7 +68,7 @@ for var=1,total_branches do
         end
         --end dig statement
         turtle.turnLeft()
-        turtle.forward()
+        forward()
         turtle.turnRight()
         --dig statement
         while turtle.detect() do
@@ -68,15 +76,15 @@ for var=1,total_branches do
         end
         --end dig statement
         turtle.up()
-        turtle.forward()
+        forward()
     end
     for var=1,each_branch do
-        turtle.back()
+        back()
     end
     turtle.turnLeft()
     turtle.turnLeft()
-    turtle.forward()
-    --turtle.forward()
+    forward()
+    --forward()
     for var=1,each_branch do
         --dig statement
         while turtle.detect() do
@@ -84,7 +92,7 @@ for var=1,total_branches do
         end
         --end dig statement
         turtle.turnLeft()
-        turtle.forward()
+        forward()
         turtle.turnRight()
         --dig statement
         while turtle.detect() do
@@ -96,7 +104,7 @@ for var=1,total_branches do
             turtle.dig()
         end
         turtle.turnRight()
-        turtle.forward()
+        forward()
         turtle.turnLeft()
         --dig statement
         while turtle.detect() do
@@ -104,13 +112,13 @@ for var=1,total_branches do
         end
         --end dig statement
         turtle.up()
-        turtle.forward()
+        forward()
     end
     for var=1,each_branch do
-        turtle.back()
+        back()
     end
-    turtle.back()
-    --turtle.back()
+    back()
+    --back()
     turtle.select(1)
     turtle.placeDown()
     for var=2,16 do
@@ -118,13 +126,13 @@ for var=1,total_branches do
         turtle.dropDown()
     end
     turtle.turnLeft()
-    turtle.forward()
-    turtle.forward()
-    turtle.forward()
-    turtle.forward()
+    forward()
+    forward()
+    forward()
+    forward()
     print("Sanity check! Starting new branch now.")
     --turtle.turnLeft()
-    --turtle.forward()
+    --forward()
     --turtle.turnRight()
 end
 --while turtle.detectDown() do
@@ -135,5 +143,5 @@ end
 --    print("Digging forward!")
 --    turtle.dig()
 --    print("Going forward!")
---    turtle.forward()
+--    forward()
 --end

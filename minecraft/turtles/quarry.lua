@@ -1,56 +1,66 @@
+--starts at the bottom left of the chunk, and does 16x16xZturtle.back()
 print("How many layers down would you like to go?")
 layers = read()
+
+function forward()
+    while not turtle.forward() do sleep(0.5) end
+end
+
+function back()
+    while not turtle.back() do sleep(0.5) end
+end
+
 for var=1,layers do
     for var=1,7 do
         for var=1,15 do
             while turtle.detectDown() do
                 turtle.digDown()
             end
-            turtle.forward()
+            forward()
         end
         while turtle.detectDown() do
             turtle.digDown()
         end
         turtle.turnRight()
-        turtle.forward()
+        forward()
         turtle.turnRight()
         for var=1,15 do
             while turtle.detectDown() do
                 turtle.digDown()
             end
-            turtle.forward()
+            forward()
         end
         while turtle.detectDown() do
             turtle.digDown()
         end
         turtle.turnLeft()
-        turtle.forward()
+        forward()
         turtle.turnLeft()
     end
     for var=1,15 do
         while turtle.detectDown() do
             turtle.digDown()
         end
-        turtle.forward()
+        forward()
     end
     while turtle.detectDown() do
         turtle.digDown()
     end
     turtle.turnRight()
-    turtle.forward()
+    forward()
     turtle.turnRight()
     for var=1,15 do
         while turtle.detectDown() do
             turtle.digDown()
         end
-        turtle.forward()
+        forward()
     end
     while turtle.detectDown() do
         turtle.digDown()
     end
     turtle.turnRight()
     for var=1,15 do
-        turtle.forward()
+        forward()
     end
     turtle.turnRight()
     turtle.select(1)
@@ -60,7 +70,7 @@ for var=1,layers do
         turtle.dropUp()
     end
     turtle.turnRight()
-    turtle.forward()
+    forward()
     turtle.turnRight()
     while turtle.detect() do
         turtle.dig()
@@ -68,7 +78,7 @@ for var=1,layers do
     turtle.select(2)
     turtle.place()
     turtle.turnLeft()
-    turtle.back()
+    back()
     turtle.turnLeft()
     turtle.down()
 end
