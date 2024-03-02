@@ -14,3 +14,13 @@ brown = 4096
 green = 8192
 red = 16384
 black = 32768
+
+
+fans: brown (4096)
+masher: yellow (16)
+skeleton: red (16384)
+zombie: purple (1024)
+spider: black (32768)
+shulker: gray (128)
+enderman: green (8192)
+wither skeleton: pink (64)
