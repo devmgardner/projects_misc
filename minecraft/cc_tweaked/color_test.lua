@@ -5,60 +5,60 @@
 ---
 
 write("testing colors\n\n")
-rs.setBundledOutput("back", 0)
+rs.setBundledOutput("bottom", 0)
 
 -- testing gray
 sleep(1)
 write("Lighting gray\n")
-rs.setBundledOutput("back", 128)
+rs.setBundledOutput("bottom", 128)
 sleep(1)
-rs.setBundledOutput("back", 0)
+rs.setBundledOutput("bottom", 0)
 
 -- testing purple
 sleep(1)
 write("Lighting purple\n")
-rs.setBundledOutput("back", 1024)
+rs.setBundledOutput("bottom", 1024)
 sleep(1)
-rs.setBundledOutput("back", 0)
+rs.setBundledOutput("bottom", 0)
 
 -- testing pink
 sleep(1)
 write("Lighting pink\n")
-rs.setBundledOutput("back", 64)
+rs.setBundledOutput("bottom", 64)
 sleep(1)
-rs.setBundledOutput("back", 0)
+rs.setBundledOutput("bottom", 0)
 sleep(1)
 
 -- testing gray and purple
 sleep(1)
 write("Lighting gray and purple\n")
-rs.setBundledOutput("back", 1152)
+rs.setBundledOutput("bottom", 1152)
 sleep(1)
-rs.setBundledOutput("back", 0)
+rs.setBundledOutput("bottom", 0)
 sleep(1)
 
 -- testing gray and pink
 sleep(1)
 write("Lighting gray and pink\n")
-rs.setBundledOutput("back", 192)
+rs.setBundledOutput("bottom", 192)
 sleep(1)
-rs.setBundledOutput("back", 0)
+rs.setBundledOutput("bottom", 0)
 sleep(1)
 
 -- testing purple and pink
 sleep(1)
 write("Lighting purple and pink\n")
-rs.setBundledOutput("back", 1088)
+rs.setBundledOutput("bottom", 1088)
 sleep(1)
-rs.setBundledOutput("back", 0)
+rs.setBundledOutput("bottom", 0)
 sleep(1)
 
 -- testing all 3
 sleep(1)
 write("Lighting all 3\n")
-rs.setBundledOutput("back", 1216)
+rs.setBundledOutput("bottom", 1216)
 sleep(1)
-rs.setBundledOutput("back", 0)
+rs.setBundledOutput("bottom", 0)
 sleep(1)
 
 
