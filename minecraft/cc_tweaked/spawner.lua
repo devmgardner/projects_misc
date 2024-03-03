@@ -4,34 +4,38 @@
 --- DateTime: 3/2/24 11:29 AM
 ---
 
+-- setting monitor and getting arguments
+local monitor = peripheral.find("monitor")
 local args = {...}
 
+-- display help message
 if #args < 8 then
-    write("usage:\n\n")
-    write("enter a sequence of space-separated 1s (on) and 0s (off) for the following:\n")
-    write("fans on/off\n")
-    write("masher on/off\n")
-    write("skeleton on/off\n")
-    write("zombie on/off\n")
-    write("spider on/off\n")
-    write("shulker on/off\n")
-    write("enderman on/off\n")
-    write("wither skeleton on/off\n\n")
-    write("for example, to run the fans and masher and only spawn spiders:\n\n")
-    write("spawner 1 1 0 0 1 0 0 0\n\n")
+    monitor.write("usage:\n\n")
+    monitor.write("enter a sequence of space-separated 1s (on) and 0s (off) for the following:\n")
+    monitor.setTextColor(4096)
+    monitor.write("fans on/off\n")
+    monitor.setTextColor(16)
+    monitor.write("masher on/off\n")
+    monitor.setTextColor(16384)
+    monitor.write("skeleton on/off\n")
+    monitor.setTextColor(1024)
+    monitor.write("zombie on/off\n")
+    monitor.setTextColor(1)
+    monitor.write("spider on/off\n")
+    monitor.setTextColor(128)
+    monitor.write("shulker on/off\n")
+    monitor.setTextColor(8192)
+    monitor.write("enderman on/off\n")
+    monitor.setTextColor(64)
+    monitor.write("wither skeleton on/off\n\n")
+    monitor.setTextColor(1)
+    monitor.write("for example, to run the fans and masher and only spawn spiders:\n\n")
+    monitor.write("spawner 1 1 0 0 1 0 0 0\n\n")
     rs.setBundledOutput("bottom", 4112)
     return
 end
 
--- fans: brown (4096)
--- masher: yellow (16)
--- skeleton: red (16384)
--- zombie: purple (1024)
--- spider: black (32768)
--- shulker: gray (128)
--- enderman: green (8192)
--- wither skeleton: pink (64)
-
+-- getting input variables
 val = 4112
 local inp_fans = args[1]
 local inp_masher = args[2]
@@ -42,36 +46,116 @@ local inp_shulker = args[6]
 local inp_ender = args[7]
 local inp_wither_skeleton = args[8]
 
+-- fans
+monitor.setTextColor(4096)
+monitor.write("fans: ")
 if inp_fans == "1" then
     val = val - 4096
+    monitor.setTextColor(32)
+    monitor.write("True\n")
+    monitor.setTextColor(1)
+else
+    monitor.setTextColor(16384)
+    monitor.write("False\n")
+    monitor.setTextColor(1)
 end
 
+-- masher
+monitor.setTextColor(16)
+monitor.write("masher: ")
 if inp_masher == "1" then
     val = val - 16
+    monitor.setTextColor(32)
+    monitor.write("True\n")
+    monitor.setTextColor(1)
+else
+    monitor.setTextColor(16384)
+    monitor.write("False\n")
+    monitor.setTextColor(1)
 end
 
+-- skeleton
+monitor.setTextColor(16384)
+monitor.write("skeleton: ")
 if inp_skeleton == "1" then
     val = val + 16384
+    monitor.setTextColor(32)
+    monitor.write("True\n")
+    monitor.setTextColor(1)
+else
+    monitor.setTextColor(16384)
+    monitor.write("False\n")
+    monitor.setTextColor(1)
 end
 
+-- zombie
+monitor.setTextColor(1024)
+monitor.write("zombie: ")
 if inp_zombie == "1" then
     val = val + 1024
+    monitor.setTextColor(32)
+    monitor.write("True\n")
+    monitor.setTextColor(1)
+else
+    monitor.setTextColor(16384)
+    monitor.write("False\n")
+    monitor.setTextColor(1)
 end
 
+-- spider
+monitor.setTextColor(32768)
+monitor.write("spider: ")
 if inp_spider == "1" then
     val = val + 32768
+    monitor.setTextColor(32)
+    monitor.write("True\n")
+    monitor.setTextColor(1)
+else
+    monitor.setTextColor(16384)
+    monitor.write("False\n")
+    monitor.setTextColor(1)
 end
 
+-- shulker
+monitor.setTextColor(128)
+monitor.write("shulker: ")
 if inp_shulker == "1" then
     val = val + 128
+    monitor.setTextColor(32)
+    monitor.write("True\n")
+    monitor.setTextColor(1)
+else
+    monitor.setTextColor(16384)
+    monitor.write("False\n")
+    monitor.setTextColor(1)
 end
 
+-- enderman
+monitor.setTextColor(8192)
+monitor.write("enderman: ")
 if inp_ender == "1" then
     val = val + 8192
+    monitor.setTextColor(32)
+    monitor.write("True\n")
+    monitor.setTextColor(1)
+else
+    monitor.setTextColor(16384)
+    monitor.write("False\n")
+    monitor.setTextColor(1)
 end
 
+-- wither skeleton
+monitor.setTextColor(64)
+monitor.write("wither skele: ")
 if inp_wither_skeleton == "1" then
     val = val + 64
+    monitor.setTextColor(32)
+    monitor.write("True\n")
+    monitor.setTextColor(1)
+else
+    monitor.setTextColor(16384)
+    monitor.write("False\n")
+    monitor.setTextColor(1)
 end
 
 rs.setBundledOutput("bottom", val)
