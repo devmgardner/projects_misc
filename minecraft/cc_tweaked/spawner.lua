@@ -71,149 +71,149 @@ end
 
 clearMon()
 
--- display help message
 if #args < 7 then
+    -- display help message
     showHelp()
     return
-end
-
--- getting input variables
-val = 4112
-local inp_fans = args[1]
-local inp_masher = args[2]
-local inp_skeleton = args[3]
-local inp_zombie = args[4]
-local inp_spider = args[5]
---local inp_shulker = args[6]
-local inp_ender = args[6]
-local inp_wither_skeleton = args[7]
-
--- fans
-monitor.setTextColor(4096)
-monitor.write("fans: ")
-if inp_fans == "1" then
-    val = val - 4096
-    monitor.setTextColor(32)
-    monitor.write("True")
-    monitor.setTextColor(1)
-    newLine()
 else
+    -- getting input variables
+    val = 4112
+    local inp_fans = args[1]
+    local inp_masher = args[2]
+    local inp_skeleton = args[3]
+    local inp_zombie = args[4]
+    local inp_spider = args[5]
+    --local inp_shulker = args[6]
+    local inp_ender = args[6]
+    local inp_wither_skeleton = args[7]
+
+    -- fans
+    monitor.setTextColor(4096)
+    monitor.write("fans: ")
+    if inp_fans == "1" then
+        val = val - 4096
+        monitor.setTextColor(32)
+        monitor.write("True")
+        monitor.setTextColor(1)
+        newLine()
+    else
+        monitor.setTextColor(16384)
+        monitor.write("False")
+        monitor.setTextColor(1)
+        newLine()
+    end
+
+    -- masher
+    monitor.setTextColor(16)
+    monitor.write("masher: ")
+    if inp_masher == "1" then
+        val = val - 16
+        monitor.setTextColor(32)
+        monitor.write("True")
+        monitor.setTextColor(1)
+        newLine()
+    else
+        monitor.setTextColor(16384)
+        monitor.write("False")
+        monitor.setTextColor(1)
+        newLine()
+    end
+
+    -- skeleton
     monitor.setTextColor(16384)
-    monitor.write("False")
+    monitor.write("skeleton: ")
+    if inp_skeleton == "1" then
+        val = val + 16384
+        monitor.setTextColor(32)
+        monitor.write("True")
+        monitor.setTextColor(1)
+        newLine()
+    else
+        monitor.setTextColor(16384)
+        monitor.write("False")
+        monitor.setTextColor(1)
+        newLine()
+    end
+
+    -- zombie
+    monitor.setTextColor(1024)
+    monitor.write("zombie: ")
+    if inp_zombie == "1" then
+        val = val + 1024
+        monitor.setTextColor(32)
+        monitor.write("True")
+        monitor.setTextColor(1)
+        newLine()
+    else
+        monitor.setTextColor(16384)
+        monitor.write("False")
+        monitor.setTextColor(1)
+        newLine()
+    end
+
+    -- spider
     monitor.setTextColor(1)
-    newLine()
+    monitor.write("spider: ")
+    if inp_spider == "1" then
+        val = val + 32768
+        monitor.setTextColor(32)
+        monitor.write("True")
+        monitor.setTextColor(1)
+        newLine()
+    else
+        monitor.setTextColor(16384)
+        monitor.write("False")
+        monitor.setTextColor(1)
+        newLine()
+    end
+
+    -- shulker
+    --monitor.setTextColor(128)
+    --monitor.write("shulker: ")
+    --if inp_shulker == "1" then
+    --    val = val + 128
+    --    monitor.setTextColor(32)
+    --    monitor.write("True")
+    --    monitor.setTextColor(1)
+    --    newLine()
+    --else
+    --    monitor.setTextColor(16384)
+    --    monitor.write("False")
+    --    monitor.setTextColor(1)
+    --    newLine()
+    --end
+
+    -- enderman
+    monitor.setTextColor(8192)
+    monitor.write("enderman: ")
+    if inp_ender == "1" then
+        val = val + 8192
+        monitor.setTextColor(32)
+        monitor.write("True")
+        monitor.setTextColor(1)
+        newLine()
+    else
+        monitor.setTextColor(16384)
+        monitor.write("False")
+        monitor.setTextColor(1)
+        newLine()
+    end
+
+    -- wither skeleton
+    monitor.setTextColor(64)
+    monitor.write("wither skeleton: ")
+    if inp_wither_skeleton == "1" then
+        val = val + 64
+        monitor.setTextColor(32)
+        monitor.write("True")
+        monitor.setTextColor(1)
+        newLine()
+    else
+        monitor.setTextColor(16384)
+        monitor.write("False")
+        monitor.setTextColor(1)
+        newLine()
+    end
+
+    rs.setBundledOutput("right", val)
 end
-
--- masher
-monitor.setTextColor(16)
-monitor.write("masher: ")
-if inp_masher == "1" then
-    val = val - 16
-    monitor.setTextColor(32)
-    monitor.write("True")
-    monitor.setTextColor(1)
-    newLine()
-else
-    monitor.setTextColor(16384)
-    monitor.write("False")
-    monitor.setTextColor(1)
-    newLine()
-end
-
--- skeleton
-monitor.setTextColor(16384)
-monitor.write("skeleton: ")
-if inp_skeleton == "1" then
-    val = val + 16384
-    monitor.setTextColor(32)
-    monitor.write("True")
-    monitor.setTextColor(1)
-    newLine()
-else
-    monitor.setTextColor(16384)
-    monitor.write("False")
-    monitor.setTextColor(1)
-    newLine()
-end
-
--- zombie
-monitor.setTextColor(1024)
-monitor.write("zombie: ")
-if inp_zombie == "1" then
-    val = val + 1024
-    monitor.setTextColor(32)
-    monitor.write("True")
-    monitor.setTextColor(1)
-    newLine()
-else
-    monitor.setTextColor(16384)
-    monitor.write("False")
-    monitor.setTextColor(1)
-    newLine()
-end
-
--- spider
-monitor.setTextColor(1)
-monitor.write("spider: ")
-if inp_spider == "1" then
-    val = val + 32768
-    monitor.setTextColor(32)
-    monitor.write("True")
-    monitor.setTextColor(1)
-    newLine()
-else
-    monitor.setTextColor(16384)
-    monitor.write("False")
-    monitor.setTextColor(1)
-    newLine()
-end
-
--- shulker
---monitor.setTextColor(128)
---monitor.write("shulker: ")
---if inp_shulker == "1" then
---    val = val + 128
---    monitor.setTextColor(32)
---    monitor.write("True")
---    monitor.setTextColor(1)
---    newLine()
---else
---    monitor.setTextColor(16384)
---    monitor.write("False")
---    monitor.setTextColor(1)
---    newLine()
---end
-
--- enderman
-monitor.setTextColor(8192)
-monitor.write("enderman: ")
-if inp_ender == "1" then
-    val = val + 8192
-    monitor.setTextColor(32)
-    monitor.write("True")
-    monitor.setTextColor(1)
-    newLine()
-else
-    monitor.setTextColor(16384)
-    monitor.write("False")
-    monitor.setTextColor(1)
-    newLine()
-end
-
--- wither skeleton
-monitor.setTextColor(64)
-monitor.write("wither skeleton: ")
-if inp_wither_skeleton == "1" then
-    val = val + 64
-    monitor.setTextColor(32)
-    monitor.write("True")
-    monitor.setTextColor(1)
-    newLine()
-else
-    monitor.setTextColor(16384)
-    monitor.write("False")
-    monitor.setTextColor(1)
-    newLine()
-end
-
-rs.setBundledOutput("right", val)
