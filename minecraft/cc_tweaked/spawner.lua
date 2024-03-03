@@ -201,7 +201,7 @@ end
 
 -- wither skeleton
 monitor.setTextColor(64)
-monitor.write("wither skele: ")
+monitor.write("wither skeleton: ")
 if inp_wither_skeleton == "1" then
     val = val + 64
     monitor.setTextColor(32)

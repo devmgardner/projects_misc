@@ -47,9 +47,9 @@ function showHelp()
     monitor.setTextColor(1)
     monitor.write("spider on/off")  -- 9
     newLine()
-    monitor.setTextColor(128)
-    monitor.write("shulker on/off")  -- 10
-    newLine()
+    --monitor.setTextColor(128)
+    --monitor.write("shulker on/off")  -- 10
+    --newLine()
     monitor.setTextColor(8192)
     monitor.write("enderman on/off")  -- 11
     newLine()
@@ -63,7 +63,7 @@ function showHelp()
     monitor.write("masher and only spawn spiders:")  -- 15
     newLine()
     newLine()  -- 16
-    monitor.write("spawner 1 1 0 0 1 0 0 0")  -- 17
+    monitor.write("spawner 1 1 0 0 1 0 0")  -- 17
     rs.setBundledOutput("right", 4112)
     return
 end

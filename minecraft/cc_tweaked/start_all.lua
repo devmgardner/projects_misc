@@ -75,7 +75,7 @@ newLine()
 
 -- wither skeleton
 monitor.setTextColor(64)
-monitor.write("wither skele: ")
+monitor.write("wither skeleton: ")
 monitor.setTextColor(32)
 monitor.write("True")
 monitor.setTextColor(1)
