@@ -72,7 +72,7 @@ end
 clearMon()
 
 -- display help message
-if #args < 8 then
+if #args < 7 then
     showHelp()
     return
 end
