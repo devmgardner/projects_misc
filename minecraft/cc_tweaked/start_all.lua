@@ -3,4 +3,86 @@
 --- Created by devingardner.
 --- DateTime: 3/2/24 3:41 PM
 ---
-rs.setBundledOutput("bottom", 58560)
+monitor = peripheral.find("monitor")
+monitor.setTextScale(0.5)
+
+function newLine()
+    local _, cY= monitor.getCursorPos()
+    monitor.setCursorPos(1,cY+1)
+end
+
+function clearMon()
+    monitor.setCursorPos(1,1)
+    for var1=1,38,1 do
+        for var2=1,36,1 do
+            monitor.write(" ")
+        end
+        newLine()
+    end
+    monitor.setCursorPos(1,1)
+end
+
+clearMon()
+rs.setBundledOutput("right", 58432)
+
+-- fans
+monitor.setTextColor(4096)
+monitor.write("fans: ")
+monitor.setTextColor(32)
+monitor.write("True")
+monitor.setTextColor(1)
+newLine()
+
+-- masher
+monitor.setTextColor(16)
+monitor.write("masher: ")
+monitor.setTextColor(32)
+monitor.write("True")
+monitor.setTextColor(1)
+newLine()
+
+-- skeleton
+monitor.setTextColor(16384)
+monitor.write("skeleton: ")
+monitor.setTextColor(32)
+monitor.write("True")
+monitor.setTextColor(1)
+newLine()
+
+-- zombie
+monitor.setTextColor(1024)
+monitor.write("zombie: ")
+monitor.setTextColor(32)
+monitor.write("True")
+monitor.setTextColor(1)
+newLine()
+
+-- spider
+monitor.setTextColor(1)
+monitor.write("spider: ")
+monitor.setTextColor(32)
+monitor.write("True")
+monitor.setTextColor(1)
+newLine()
+
+-- enderman
+monitor.setTextColor(8192)
+monitor.write("enderman: ")
+monitor.setTextColor(32)
+monitor.write("True")
+monitor.setTextColor(1)
+newLine()
+
+-- wither skeleton
+monitor.setTextColor(64)
+monitor.write("wither skele: ")
+monitor.setTextColor(32)
+monitor.write("True")
+monitor.setTextColor(1)
+newLine()
+
+
+
+
+
+

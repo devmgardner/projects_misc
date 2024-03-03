@@ -25,10 +25,7 @@ function clearMon()
     monitor.setCursorPos(1,1)
 end
 
-clearMon()
-
--- display help message
-if #args < 8 then
+function showHelp()
     monitor.write("usage:")  -- 1
     newLine()
     monitor.write("enter a sequence of space-separated ")  -- 2
@@ -51,9 +48,9 @@ if #args < 8 then
     monitor.setTextColor(1)
     monitor.write("spider on/off")  -- 9
     newLine()
-    monitor.setTextColor(128)
-    monitor.write("shulker on/off")  -- 10
-    newLine()
+    --monitor.setTextColor(128)
+    --monitor.write("shulker on/off")  -- 10
+    --newLine()
     monitor.setTextColor(8192)
     monitor.write("enderman on/off")  -- 11
     newLine()
@@ -67,9 +64,16 @@ if #args < 8 then
     monitor.write("masher and only spawn spiders:")  -- 15
     newLine()
     newLine()  -- 16
-    monitor.write("spawner 1 1 0 0 1 0 0 0")  -- 17
-    rs.setBundledOutput("bottom", 4112)
+    monitor.write("spawner 1 1 0 0 1 0 0")  -- 17
+    rs.setBundledOutput("right", 4112)
     return
+end
+
+clearMon()
+
+-- display help message
+if #args < 8 then
+    showHelp()
 end
 
 -- getting input variables
@@ -79,9 +83,9 @@ local inp_masher = args[2]
 local inp_skeleton = args[3]
 local inp_zombie = args[4]
 local inp_spider = args[5]
-local inp_shulker = args[6]
-local inp_ender = args[7]
-local inp_wither_skeleton = args[8]
+--local inp_shulker = args[6]
+local inp_ender = args[6]
+local inp_wither_skeleton = args[7]
 
 -- fans
 monitor.setTextColor(4096)
@@ -148,7 +152,7 @@ else
 end
 
 -- spider
-monitor.setTextColor(32768)
+monitor.setTextColor(1)
 monitor.write("spider: ")
 if inp_spider == "1" then
     val = val + 32768
@@ -164,20 +168,20 @@ else
 end
 
 -- shulker
-monitor.setTextColor(128)
-monitor.write("shulker: ")
-if inp_shulker == "1" then
-    val = val + 128
-    monitor.setTextColor(32)
-    monitor.write("True")
-    monitor.setTextColor(1)
-    newLine()
-else
-    monitor.setTextColor(16384)
-    monitor.write("False")
-    monitor.setTextColor(1)
-    newLine()
-end
+--monitor.setTextColor(128)
+--monitor.write("shulker: ")
+--if inp_shulker == "1" then
+--    val = val + 128
+--    monitor.setTextColor(32)
+--    monitor.write("True")
+--    monitor.setTextColor(1)
+--    newLine()
+--else
+--    monitor.setTextColor(16384)
+--    monitor.write("False")
+--    monitor.setTextColor(1)
+--    newLine()
+--end
 
 -- enderman
 monitor.setTextColor(8192)
@@ -211,4 +215,4 @@ else
     newLine()
 end
 
-rs.setBundledOutput("bottom", val)
+rs.setBundledOutput("right", val)
