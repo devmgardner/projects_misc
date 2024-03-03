@@ -74,6 +74,7 @@ clearMon()
 -- display help message
 if #args < 8 then
     showHelp()
+    return
 end
 
 -- getting input variables
