@@ -71,6 +71,23 @@ end
 
 clearMon()
 
+if #args == 1 then
+    if args[1] == "open" then
+        local currentVal = rs.getBundledOutput("right")
+        currentVal = currentVal + 8
+        rs.setBundledOutput("right", currentVal)
+        return
+    elseif args[1] == "close" then
+        local currentVal = rs.getBundledOutput("right")
+        currentVal = currentVal - 8
+        rs.setBundledOutput("right", currentVal)
+        return
+    else
+        showHelp()
+        return
+    end
+end
+
 if #args < 7 then
     -- display help message
     showHelp()
