@@ -29,7 +29,7 @@ if #args == 1 then
     end
 end
 
-if #args < 7 then
+if #args < 9 then
     -- display help message
     dev_func.showHelp(monitor)
     return
@@ -44,6 +44,8 @@ else
     --local inp_shulker = args[6]
     local inp_ender = args[6]
     local inp_wither_skeleton = args[7]
+    local inp_ravager = args[8]
+    local inp_brute = args[9]
 
     -- fans
     monitor.setTextColor(4096)
@@ -162,6 +164,38 @@ else
     monitor.write("wither skeleton: ")
     if inp_wither_skeleton == "1" then
         val = val + 64
+        monitor.setTextColor(32)
+        monitor.write("True")
+        monitor.setTextColor(1)
+        dev_func.newLine(monitor)
+    else
+        monitor.setTextColor(16384)
+        monitor.write("False")
+        monitor.setTextColor(1)
+        dev_func.newLine(monitor)
+    end
+
+    -- ravager
+    monitor.setTextColor(512)
+    monitor.write("ravager: ")
+    if inp_ravager == "1" then
+        val = val + 512
+        monitor.setTextColor(32)
+        monitor.write("True")
+        monitor.setTextColor(1)
+        dev_func.newLine(monitor)
+    else
+        monitor.setTextColor(16384)
+        monitor.write("False")
+        monitor.setTextColor(1)
+        dev_func.newLine(monitor)
+    end
+
+     -- piglin brute
+    monitor.setTextColor(4)
+    monitor.write("piglin brute: ")
+    if inp_brute == "1" then
+        val = val + 4
         monitor.setTextColor(32)
         monitor.write("True")
         monitor.setTextColor(1)

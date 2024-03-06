@@ -46,14 +46,20 @@ local function showHelp(mon)
     mon.setTextColor(64)
     mon.write("wither skeleton on/off")  -- 12
     newLine(mon)
-    newLine(mon)  -- 13
+    mon.setTextColor(512)
+    mon.write("ravager on/off")  -- 13
+    newLine(mon)
+    mon.setTextColor(4)
+    mon.write("piglin brute on/off")  -- 14
+    newLine(mon)
+    newLine(mon)  -- 15
     mon.setTextColor(1)
-    mon.write("for example, to run the fans and")  -- 14
+    mon.write("for example, to run the fans and")  -- 16
     newLine(mon)
-    mon.write("masher and only spawn spiders:")  -- 15
+    mon.write("masher and only spawn spiders:")  -- 17
     newLine(mon)
-    newLine(mon)  -- 16
-    mon.write("spawner 1 1 0 0 1 0 0")  -- 17
+    newLine(mon)  -- 18
+    mon.write("spawner 1 1 0 0 1 0 0 0 0")  -- 19
     rs.setBundledOutput("right", 4112)
     return
 end
