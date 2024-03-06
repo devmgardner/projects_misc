@@ -23,7 +23,7 @@ function clearMon()
 end
 
 clearMon()
-rs.setBundledOutput("right", 58432)
+rs.setBundledOutput("right", 58948)
 
 -- fans
 monitor.setTextColor(4096)
@@ -81,7 +81,21 @@ monitor.write("True")
 monitor.setTextColor(1)
 newLine()
 
+-- ravager
+monitor.setTextColor(512)
+monitor.write("ravager: ")
+monitor.setTextColor(32)
+monitor.write("True")
+monitor.setTextColor(1)
+newLine()
 
+-- piglin brute
+monitor.setTextColor(4)
+monitor.write("piglin brute: ")
+monitor.setTextColor(32)
+monitor.write("True")
+monitor.setTextColor(1)
+newLine()
 
 
 
