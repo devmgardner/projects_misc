@@ -9,15 +9,15 @@ monitor.setCursorPos(1,1)
 monitor.setTextScale(0.5)
 term.redirect(monitor)
 
-local args = {...}
+--local args = {...}
 
-function showHelp()
-    print('to use the split program:')
-    print('replace the top drawer with whatever')
-    print('inventory you want to split\n')
-    print('then, once the inventory is empty,')
-    print('run "split start" to split it out')
-end
+--function showHelp()
+--    print('to use the split program:')
+--    print('replace the top drawer with whatever')
+--    print('inventory you want to split\n')
+--    print('then, once the inventory is empty,')
+--    print('run "split start" to split it out')
+--end
 
 function doSplit()
     local input_inv = peripheral.wrap('storagedrawers:standard_drawers_1_5')
@@ -30,10 +30,17 @@ function doSplit()
     input_inv.pushItems('storagedrawers:standard_drawers_1_3', 2, remainder, 2)
 end
 
-if #args ~= 1 then
-    showHelp()
-elseif args[1] ~= 'start' then
-    showHelp()
-else
-    doSplit()
+--if #args ~= 1 then
+--    showHelp()
+--elseif args[1] ~= 'start' then
+--    showHelp()
+--else
+--    doSplit()
+--end
+
+while true do
+    if rs.getAnalogInput("front") then
+        doSplit()
+        sleep(5)
+    end
 end
