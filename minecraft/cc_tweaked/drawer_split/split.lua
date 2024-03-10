@@ -39,7 +39,7 @@ end
 --end
 
 while true do
-    if rs.getAnalogInput("front") then
+    if rs.getAnalogInput("front") > 7 then
         doSplit()
         sleep(5)
     end
