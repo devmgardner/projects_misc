@@ -4,6 +4,8 @@
 ---
 
 monitor = peripheral.find('monitor')
+monitor.clear()
+monitor.setCursorPos(1,1)
 monitor.setTextScale(0.5)
 term.redirect(monitor)
 

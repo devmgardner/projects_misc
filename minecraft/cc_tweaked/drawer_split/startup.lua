@@ -5,6 +5,8 @@
 
 monitor = peripheral.find('monitor')
 monitor.setTextScale(0.5)
+monitor.clear()
+monitor.setCursorPos(1,1)
 term.redirect(monitor)
 
 function showHelp()
