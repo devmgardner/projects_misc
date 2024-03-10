@@ -3,11 +3,11 @@
 --- DateTime: 3/10/24 07:54 AM
 ---
 
-monitor = peripheral.find('monitor')
-monitor.clear()
-monitor.setCursorPos(1,1)
-monitor.setTextScale(0.5)
-term.redirect(monitor)
+--monitor = peripheral.find('monitor')
+--monitor.clear()
+--monitor.setCursorPos(1,1)
+--monitor.setTextScale(0.5)
+--term.redirect(monitor)
 
 --local args = {...}
 
