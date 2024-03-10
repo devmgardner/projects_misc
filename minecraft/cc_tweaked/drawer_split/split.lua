@@ -39,8 +39,11 @@ end
 --end
 
 while true do
-    if rs.getAnalogInput("front") > 7 then
+    local rs_input = rs.getAnalogInput("front")
+    if rs_input > 7 then
         doSplit()
         sleep(5)
+    else
+        sleep(1)
     end
 end
