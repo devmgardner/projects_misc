@@ -23,6 +23,81 @@ if #args == 1 then
         currentVal = currentVal - 8
         rs.setBundledOutput("right", currentVal)
         return
+    elseif args[1] == "default" then
+        -- default val
+        val = 4112
+        -- setting fans
+        monitor.setTextColor(4096)
+        monitor.write("fans: ")
+        val = val - 4096
+        monitor.setTextColor(32)
+        monitor.write("True")
+        monitor.setTextColor(1)
+        dev_func.newLine(monitor)
+        -- setting mashers
+        monitor.setTextColor(16)
+        monitor.write("masher: ")
+        val = val - 16
+        monitor.setTextColor(32)
+        monitor.write("True")
+        monitor.setTextColor(1)
+        dev_func.newLine(monitor)
+        -- setting skeleton
+        monitor.setTextColor(16384)
+        monitor.write("skeleton: ")
+        val = val + 16384
+        monitor.setTextColor(32)
+        monitor.write("True")
+        monitor.setTextColor(1)
+        dev_func.newLine(monitor)
+        -- setting zombie
+        monitor.setTextColor(1024)
+        monitor.write("zombie: ")
+        val = val + 1024
+        monitor.setTextColor(32)
+        monitor.write("True")
+        monitor.setTextColor(1)
+        dev_func.newLine(monitor)
+        -- no spider
+        monitor.setTextColor(1)
+        monitor.write("spider: ")
+        monitor.setTextColor(16384)
+        monitor.write("False")
+        monitor.setTextColor(1)
+        dev_func.newLine(monitor)
+        -- setting enderman
+        monitor.setTextColor(8192)
+        monitor.write("enderman: ")
+        val = val + 8192
+        monitor.setTextColor(32)
+        monitor.write("True")
+        monitor.setTextColor(1)
+        dev_func.newLine(monitor)
+        -- setting wither skeleton
+        monitor.setTextColor(64)
+        monitor.write("wither skeleton: ")
+        val = val + 64
+        monitor.setTextColor(32)
+        monitor.write("True")
+        monitor.setTextColor(1)
+        dev_func.newLine(monitor)
+        -- no ravager
+        monitor.setTextColor(512)
+        monitor.write("ravager: ")
+        monitor.setTextColor(16384)
+        monitor.write("False")
+        monitor.setTextColor(1)
+        dev_func.newLine(monitor)
+        -- no piglin brute
+        monitor.setTextColor(4)
+        monitor.write("piglin brute: ")
+        monitor.setTextColor(16384)
+        monitor.write("False")
+        monitor.setTextColor(1)
+        dev_func.newLine(monitor)
+        -- setting val and returning
+        rs.setBundledOutput("right", val)
+        return
     else
         dev_func.showHelp(monitor)
         return
