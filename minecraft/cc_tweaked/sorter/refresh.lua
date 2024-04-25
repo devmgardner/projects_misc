@@ -3,5 +3,5 @@
 --- Created by devingardner.
 --- DateTime: 3/3/24 10:25 AM
 ---
-fs.delete("startup/sorter.lua")
+fs.delete("startup")
 shell.run("wget https://raw.githubusercontent.com/devmgardner/projects_misc/master/minecraft/cc_tweaked/sorter/sorter.lua startup/sorter.lua")
