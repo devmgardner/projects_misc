@@ -4,9 +4,6 @@
 --- DateTime: 4/25/24 1:14PM
 ---
 
---local dev_func = require("dev_func")
---dev_func.clearMon(monitor)
-
 -- need to create while loop
 -- while True, check contents of connected inventory (var name: "input_inv")
 local input_inv = peripheral.wrap("compactstorage:compact_chest")
@@ -16,7 +13,17 @@ local normal_inv = peripheral.wrap("storagedrawers:controller_slave")
 -- if input_inv.getItemDetail(<item slot #>) has key 'lore', send to another connected inventory (var name: "affix_inv")
 -- else, send to regular connected inventory (var name: "normal_inv")
 -- need to find good "refresh rate" for the while loop
-while(true)
-    do
-
+while(true) do
+    if #input_inv.list() == 0 then ;
+    elseif #input_inv.list() > 0 then
+        for slot, item in pairs(input_inv.list()) do
+            local this_item = input_inv.getItemDetail(slot)
+            if this_item['lore'] ~= nil then
+                input_inv.pushItems(peripheral.getName(affix_inv), slot)
+            else
+                input_inv.pushItems(peripheral.getName(normal_inv), slot)
+            end
+        end
+    end
+    sleep(0.2)
 end
