@@ -25,7 +25,7 @@ while(true) do
             end
         end
     else
-        sleep(0.2)
+        sleep(0.15)
     end
-    sleep(0.2)
+    sleep(0.15)
 end
