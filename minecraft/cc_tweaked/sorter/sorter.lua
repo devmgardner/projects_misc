@@ -14,8 +14,7 @@ local normal_inv = peripheral.wrap("storagedrawers:controller_slave")
 -- else, send to regular connected inventory (var name: "normal_inv")
 -- need to find good "refresh rate" for the while loop
 while(true) do
-    if #input_inv.list() == 0 then ;
-    elseif #input_inv.list() > 0 then
+    if #input_inv.list() > 0 then
         for slot, item in pairs(input_inv.list()) do
             local this_item = input_inv.getItemDetail(slot)
             if this_item['lore'] ~= nil then
@@ -24,6 +23,8 @@ while(true) do
                 input_inv.pushItems(peripheral.getName(normal_inv), slot)
             end
         end
+    else
+        sleep(0.2)
     end
     sleep(0.2)
 end
