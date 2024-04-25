@@ -6,9 +6,9 @@
 
 -- need to create while loop
 -- while True, check contents of connected inventory (var name: "input_inv")
-local input_inv = peripheral.wrap("compactstorage:compact_chest")
-local affix_inv = peripheral.find("storagedrawers:controller")
-local normal_inv = peripheral.wrap("storagedrawers:controller_slave")
+input_inv = peripheral.wrap("compactstorage:compact_chest")
+affix_inv = peripheral.find("storagedrawers:controller")
+normal_inv = peripheral.wrap("storagedrawers:controller_slave")
 -- if items in input_inv, iterate over all items
 -- if input_inv.getItemDetail(<item slot #>) has key 'lore', send to another connected inventory (var name: "affix_inv")
 -- else, send to regular connected inventory (var name: "normal_inv")
