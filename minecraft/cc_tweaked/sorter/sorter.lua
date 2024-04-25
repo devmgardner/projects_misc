@@ -6,15 +6,16 @@
 
 -- need to create while loop
 -- while True, check contents of connected inventory (var name: "input_inv")
-input_inv = peripheral.wrap("compactstorage:compact_chest")
-affix_inv = peripheral.find("storagedrawers:controller")
-normal_inv = peripheral.wrap("storagedrawers:controller_slave")
+local input_inv = peripheral.wrap("compactstorage:compact_chest")
+local affix_inv = peripheral.find("storagedrawers:controller")
+local normal_inv = peripheral.wrap("storagedrawers:controller_slave")
 -- if items in input_inv, iterate over all items
 -- if input_inv.getItemDetail(<item slot #>) has key 'lore', send to another connected inventory (var name: "affix_inv")
 -- else, send to regular connected inventory (var name: "normal_inv")
 -- need to find good "refresh rate" for the while loop
 while(true) do
-    if #input_inv.list() > 0 then
+    input_inv_list = input_inv.list()
+    if #input_inv_list > 0 then
         for slot, item in pairs(input_inv.list()) do
             local this_item = input_inv.getItemDetail(slot)
             if this_item['lore'] ~= nil then
