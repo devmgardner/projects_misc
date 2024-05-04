@@ -17,7 +17,7 @@ while(true) do
     vals = rs.getBundledInput("left")
     local result = funcs.processVals(vals)
     if result[2] ~= nil then
-        rs.setBundledOutput("right", result[1])
+        rs.setBundledOutput("right", result[2])
     else
         funcs.cleanUp()
     end
