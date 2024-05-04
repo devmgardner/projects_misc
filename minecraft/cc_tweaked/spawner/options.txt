@@ -1,0 +1,12 @@
+B - start
+B - cleanup, end all
+T - fans
+T - mashers
+T - slaughter
+T - skeleton
+T - zombie
+T - spider
+T - enderman
+T - wither skeleton
+T - ravager
+T - piglin brute

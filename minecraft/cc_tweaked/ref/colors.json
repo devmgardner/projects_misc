@@ -1,0 +1,82 @@
+{
+  "00001": {
+    "color": "white",
+    "used": true,
+    "name": "end button"
+  },
+  "00002": {
+    "color": "orange",
+    "used": true,
+    "name": "start button"
+  },
+  "00004": {
+    "color": "magenta",
+    "used": true,
+    "name": "piglin brute"
+  },
+  "00008": {
+    "color": "lightBlue",
+    "used": true,
+    "name": "doors"
+  },
+  "00016": {
+    "color": "yellow",
+    "used": true,
+    "name": "mashers"
+  },
+  "00032": {
+    "color": "lime",
+    "used": true,
+    "name": "slaughter"
+  },
+  "00064": {
+    "color": "pink",
+    "used": true,
+    "name": "wither skeleton"
+  },
+  "00128": {
+    "color": "gray",
+    "used": false,
+    "name": null
+  },
+  "00256": {
+    "color": "lightGray",
+    "used": false,
+    "name": null
+  },
+  "00512": {
+    "color": "cyan",
+    "used": true,
+    "name": "ravager"
+  },
+  "01024": {
+    "color": "purple",
+    "used": true,
+    "name": "zombie"
+  },
+  "02048": {
+    "color": "blue",
+    "used": false,
+    "name": null
+  },
+  "04096": {
+    "color": "brown",
+    "used": true,
+    "name": "fans"
+  },
+  "08192": {
+    "color": "green",
+    "used": true,
+    "name": "enderman"
+  },
+  "16384": {
+    "color": "red",
+    "used": true,
+    "name": "skeleton"
+  },
+  "32768": {
+    "color": "black",
+    "used": true,
+    "name": "spider"
+  }
+}
