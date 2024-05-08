@@ -4,7 +4,7 @@
 --- DateTime: 5/7/2024 9:24 PM
 ---
 
-local modem = peripheral.find("modem")
+local modem = peripheral.wrap("back")
 modem.open(43)
 local controller = peripheral.find("storagedrawers:controller")
 
