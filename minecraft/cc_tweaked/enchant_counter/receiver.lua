@@ -30,7 +30,7 @@ function commas(num)
 
     local result = ""
 
-    local before = string.match(tostring(num), "(%d*)%.?.*$")
+    local sign, before, after = string.match(tostring (num), "^([%+%-]?)(%d*)(%.?.*)$")
 
     if string.len(before) > 3 then
         while string.len(before) > 3 do
@@ -41,7 +41,7 @@ function commas(num)
         result = before
     end
 
-    return result
+    return before .. result .. after
 end
 
 while(true) do
@@ -58,6 +58,7 @@ while(true) do
     mon.write("    Total #    ")
     newLine(mon)
     mon.write("   Enchanted   ")
+    newLine(mon)
     mon.write(result_string)
     sleep(0.5)
 end
