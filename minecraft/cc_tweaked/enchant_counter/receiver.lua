@@ -49,15 +49,15 @@ while(true) do
     repeat
         event, side, channel, replyChannel, message, distance = os.pullEvent("modem_message")
     until channel == 43
-    clearMon(mon)
-    mon.write("    Total #    ")
-    newLine(mon)
-    mon.write("   Enchanted   ")
     local result_num = commas(message)
     local num_spaces = math.floor((15 - string.len(result_num)) / 2)
     local space_string = string.rep(" ", num_spaces)
     local middle_string = (space_string .. result_num)
     local result_string = (middle_string .. space_string)
+    clearMon(mon)
+    mon.write("    Total #    ")
+    newLine(mon)
+    mon.write("   Enchanted   ")
     mon.write(result_string)
     sleep(0.5)
 end
