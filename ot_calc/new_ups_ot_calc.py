@@ -177,4 +177,4 @@ if __name__ == '__main__':
     new_check = Paycheck()
     new_check.calculate_pay()
 
-    print(f'Total pay with provided inputs is: $ {new_check.total_pay:,.02d}')
+    print(f'Total pay with provided inputs is: $ {new_check.total_pay:,.02f}')
