@@ -179,7 +179,6 @@ class Paycheck:
         self.total_pay = total_hours * (self.pay * (self.taxes / 100))
 
     def data_dump(self):
-        self.calculate_pay()
         now = int(time.time())
         with open(f'{now}.txt', 'w') as file:
             for day in self.days:
