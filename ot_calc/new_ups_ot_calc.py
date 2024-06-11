@@ -57,8 +57,11 @@ class Paycheck:
         self.days_per_week = 0
 
     class Day:
-        def __init__(self, week: int, day: int, daily_hours: Union[int, float]):
-            self.actual_hours = 0
+        def __init__(self, week: int, day: int, daily_hours: Union[int, float], actual_hours: int = None):
+            if actual_hours:
+                self.actual_hours = actual_hours
+            else:
+                self.actual_hours = 0
             self.true_hours = 0
 
             self.week = week
@@ -166,14 +169,17 @@ class Paycheck:
                 day = _d + 1
                 self.days.append(self.Day(week, day, self.schedule))
 
-    def calculate_pay(self):
+    def calculate_pay(self, all_hours: int = None):
         total_hours = 0
         self.get_values()
         self.define_days()
-
         for day in self.days:
-            day.get_values()
-            day.calculate_ot()
+            if all_hours:
+                day.actual_hours = all_hours
+                day.calculate_ot()
+            else:
+                day.get_values()
+                day.calculate_ot()
             total_hours += day.true_hours
 
         self.total_pay = total_hours * (self.pay * (self.taxes / 100))
@@ -190,6 +196,9 @@ class Paycheck:
 
 if __name__ == '__main__':
     new_check = Paycheck()
-    new_check.calculate_pay()
+    new_check.calculate_pay(all_hours=20)
     new_check.data_dump()
-
+    # TODO:
+    #  - implement "next day is double time" overtime rule
+    #  - make CLI config easier
+    #  - create "OT hours until X"  method
