@@ -1,4 +1,5 @@
 from typing import Union
+import time
 
 # region ref info
 # If scheduled for 8 hour shifts:
@@ -15,6 +16,11 @@ from typing import Union
 # --Hours 13+ are 2x pay
 # Less than 8 hours between shifts:
 # --Next shift is double pay
+
+# 06-11-24 info
+# pay rate: 17.99/hour
+# schedule: 4x10s
+# to pay off: 5466
 # endregion
 
 
@@ -171,6 +177,16 @@ class Paycheck:
             total_hours += day.true_hours
 
         self.total_pay = total_hours * (self.pay * (self.taxes / 100))
+
+    def data_dump(self):
+        self.calculate_pay()
+        now = int(time.time())
+        with open(f'{now}.txt', 'w') as file:
+            for day in self.days:
+                file.write(f'Week #{day.week}, Day #{day.day}:\n'
+                           f'{day.actual_hours} hours worked, {day.true_hours} hours paid.\n\n')
+
+            file.write(f'Final total is $ {new_check.total_pay:,.02f}')
 
 
 if __name__ == '__main__':
