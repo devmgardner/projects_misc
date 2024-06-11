@@ -192,5 +192,5 @@ class Paycheck:
 if __name__ == '__main__':
     new_check = Paycheck()
     new_check.calculate_pay()
+    new_check.data_dump()
 
-    print(f'Total pay with provided inputs is: $ {new_check.total_pay:,.02f}')
